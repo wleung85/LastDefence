@@ -16,7 +16,6 @@ public class Rotation : MonoBehaviour {
 		difference.Normalize();		//normalizing the vector meaning that all the sum of the vector = 1	
 		float rotZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;	// find the angle in deg
 		newAngle = rotZ + rotationOffset;
-		Debug.Log("Angle: " + newAngle);
 
 		// Too much in the front
 		if (newAngle < maxAngleFront && newAngle > -90) {

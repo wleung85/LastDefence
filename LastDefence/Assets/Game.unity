@@ -301,10 +301,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationOffset: 0
-  mouseLimitFront: -0.2
-  mouseLimitBack: -0.3
   maxAngleFront: -10
-  maxAngleBack: 180
+  maxAngleBack: -175
 --- !u!212 &1258524801
 SpriteRenderer:
   m_ObjectHideFlags: 0
