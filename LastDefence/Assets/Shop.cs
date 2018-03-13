@@ -21,6 +21,19 @@ public class Shop : MonoBehaviour
     public int rateLevel;
     public int healthLevel;
     public int speedLevel;
+    public Image sizeL1;
+    public Image sizeL2;
+    public Image sizeL3;
+    public Image rateL1;
+    public Image rateL2;
+    public Image rateL3;
+    public Image healthL1;
+    public Image healthL2;
+    public Image healthL3;
+    public Image speedL1;
+    public Image speedL2;
+    public Image speedL3;
+    
 
     public void Start()
     {
@@ -44,6 +57,7 @@ public class Shop : MonoBehaviour
         healthPrice = (healthLevel + 1) * 5000;
         speedPrice = (speedLevel + 1) * 5000;
 
+        /*
         //display items that can be bought (blue vs grey buttons)
         if (sizeLevel >= 3) {
             Image invalid = GameObject.Find("SizeInvalid").GetComponent<Image>();
@@ -76,9 +90,98 @@ public class Shop : MonoBehaviour
             Image valid = GameObject.Find("SpeedValidButton").GetComponent<Image>();
             valid.enabled = true;
         }
+        */
         //display levels of each item
+        sizeL1 = GameObject.Find("SizeL1").GetComponent<Image>();
+        sizeL2 = GameObject.Find("SizeL2").GetComponent<Image>();
+        sizeL3 = GameObject.Find("SizeL3").GetComponent<Image>();
+        rateL1 = GameObject.Find("RateL1").GetComponent<Image>();
+        rateL2 = GameObject.Find("RateL2").GetComponent<Image>();
+        rateL3 = GameObject.Find("RateL3").GetComponent<Image>();
+        healthL1 = GameObject.Find("HealthL1").GetComponent<Image>();
+        healthL2 = GameObject.Find("HealthL2").GetComponent<Image>();
+        healthL3 = GameObject.Find("HealthL3").GetComponent<Image>();
+        speedL1 = GameObject.Find("SpeedL1").GetComponent<Image>();
+        speedL2 = GameObject.Find("SpeedL2").GetComponent<Image>();
+        speedL3 = GameObject.Find("SpeedL3").GetComponent<Image>();
 
+        if (sizeLevel == 3) {
+            sizeL3.enabled = true;
+            Debug.Log("max size reached");
+            ChangeValue(size, 0);
+            Image invalid = GameObject.Find("SizeInvalid").GetComponent<Image>();
+            invalid.enabled = true;
+        } else {
+            ChangeValue(size, sizePrice);
+            Image valid = GameObject.Find("SizeValidButton").GetComponent<Image>();
+            valid.enabled = true;
+            if (sizeLevel == 2) {
+                sizeL2.enabled = true;
+            } else {
+                if (sizeLevel == 1) {
+                    sizeL1.enabled = true;
+                }
+            }
+        }
 
+        if (rateLevel == 3){
+            rateL3.enabled = true;
+            Debug.Log("max rate reached");
+            ChangeValue(rate, 0);
+            Image invalid = GameObject.Find("RateInvalid").GetComponent<Image>();
+            invalid.enabled = true;
+        } else {
+            ChangeValue(rate, ratePrice);
+            Image valid = GameObject.Find("RateValidButton").GetComponent<Image>();
+            valid.enabled = true;
+            if (rateLevel == 2) {
+                rateL2.enabled = true;
+            } else {
+                if (rateLevel == 1) {
+                    rateL1.enabled = true;
+                }
+            }
+        }
+
+        if (healthLevel == 3) {
+            healthL3.enabled = true;
+            Debug.Log("max health reached");
+            ChangeValue(health, 0);
+            Image invalid = GameObject.Find("HealthInvalid").GetComponent<Image>();
+            invalid.enabled = true;
+        } else {
+            ChangeValue(health, healthPrice);
+            Image valid = GameObject.Find("HealthValidButton").GetComponent<Image>();
+            valid.enabled = true;
+            if (healthLevel == 2) {
+                healthL2.enabled = true;
+            } else {
+                if (healthLevel == 1) {
+                    healthL1.enabled = true;
+                }
+            }
+        }
+
+        if (speedLevel == 3) {
+            speedL3.enabled = true;
+            Debug.Log("max size reached");
+            ChangeValue(speed, 0);
+            Image invalid = GameObject.Find("SpeedInvalid").GetComponent<Image>();
+            invalid.enabled = true;
+        } else {
+            ChangeValue(speed, speedPrice);
+            Image valid = GameObject.Find("SpeedValidButton").GetComponent<Image>();
+            valid.enabled = true;
+            if (speedLevel == 2) {
+                speedL2.enabled = true;
+            } else {
+                if (speedLevel == 1) {
+                    speedL1.enabled = true;
+                }
+            }
+        }
+
+        /*
         //display price of each item
         if (sizePrice > 15000){
             Debug.Log("max size reached");
@@ -107,6 +210,8 @@ public class Shop : MonoBehaviour
         } else {
             ChangeValue(speed, sizePrice);
         }
+
+    */
     }
 
     public void Back(){
