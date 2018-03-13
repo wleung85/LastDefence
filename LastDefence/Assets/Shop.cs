@@ -57,41 +57,8 @@ public class Shop : MonoBehaviour
         healthPrice = (healthLevel + 1) * 5000;
         speedPrice = (speedLevel + 1) * 5000;
 
-        /*
-        //display items that can be bought (blue vs grey buttons)
-        if (sizeLevel >= 3) {
-            Image invalid = GameObject.Find("SizeInvalid").GetComponent<Image>();
-            invalid.enabled = true;
-        } else {
-            Image valid = GameObject.Find("SizeValidButton").GetComponent<Image>();
-            valid.enabled = true;
-        }
 
-        if (rateLevel >= 3) {
-            Image invalid = GameObject.Find("RateInvalid").GetComponent<Image>();
-            invalid.enabled = true;
-        } else {
-            Image valid = GameObject.Find("RateValidButton").GetComponent<Image>();
-            valid.enabled = true;
-        }
-
-        if (healthLevel >= 3) {
-            Image invalid = GameObject.Find("HealthInvalid").GetComponent<Image>();
-            invalid.enabled = true;
-        } else {
-            Image valid = GameObject.Find("HealthValidButton").GetComponent<Image>();
-            valid.enabled = true;
-        }
-
-        if (speedLevel >= 3) {
-            Image invalid = GameObject.Find("SpeedInvalid").GetComponent<Image>();
-            invalid.enabled = true;
-        } else {
-            Image valid = GameObject.Find("SpeedValidButton").GetComponent<Image>();
-            valid.enabled = true;
-        }
-        */
-        //display levels of each item
+        //display levels/cost of each item
         sizeL1 = GameObject.Find("SizeL1").GetComponent<Image>();
         sizeL2 = GameObject.Find("SizeL2").GetComponent<Image>();
         sizeL3 = GameObject.Find("SizeL3").GetComponent<Image>();
@@ -180,38 +147,6 @@ public class Shop : MonoBehaviour
                 }
             }
         }
-
-        /*
-        //display price of each item
-        if (sizePrice > 15000){
-            Debug.Log("max size reached");
-            ChangeValue(size, 0);
-        } else {
-            ChangeValue(size, sizePrice);
-        }
-
-        if (ratePrice > 15000){
-            Debug.Log("max rate reached");
-            ChangeValue(rate, 0);
-        } else {
-            ChangeValue(rate, ratePrice);
-        }
-
-        if (healthPrice > 15000){
-            Debug.Log("max health reached");
-            ChangeValue(health, 0);
-        } else {
-            ChangeValue(health, healthPrice);
-        }
-
-        if (speedPrice > 15000){
-            Debug.Log("max speed reached");
-            ChangeValue(speed, 0);
-        } else {
-            ChangeValue(speed, sizePrice);
-        }
-
-    */
     }
 
     public void Back(){
@@ -341,22 +276,54 @@ public class Shop : MonoBehaviour
 
     public void updateSizeLevel()
     {
-
+        if (sizeLevel == 1) {
+            sizeL1.enabled = true;
+        } else {
+            if (sizeLevel == 2) {
+                sizeL2.enabled = true;
+            } else {
+                sizeL3.enabled = true;
+            }
+        }
     }
 
     public void updateRateLevel()
     {
-
+        if (rateLevel == 1) {
+            rateL1.enabled = true;
+        } else {
+            if (rateLevel == 2) {
+                rateL2.enabled = true;
+            } else {
+                rateL3.enabled = true;
+            }
+        }
     }
 
     public void updateHealthLevel()
     {
-
+        if (healthLevel == 1) {
+            healthL1.enabled = true;
+        } else {
+            if (healthLevel == 2) {
+                healthL2.enabled = true;
+            } else {
+                healthL3.enabled = true;
+            }
+        }
     }
 
     public void updateSpeedLevel()
     {
-
+        if (speedLevel == 1) {
+            speedL1.enabled = true;
+        } else {
+            if (speedLevel == 2) {
+                speedL2.enabled = true;
+            } else {
+                speedL3.enabled = true;
+            }
+        }
     }
 
     public void NoFunds() {
