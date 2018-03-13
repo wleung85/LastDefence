@@ -328,5 +328,14 @@ public class Shop : MonoBehaviour
 
     public void NoFunds() {
         Debug.Log("Not enough funds");
+        Image error = GameObject.Find("Error").GetComponent<Image>();
+        StartCoroutine(ShowError(error, 1));
+    }
+
+    IEnumerator ShowError(Image img, float delay)
+    {
+        img.enabled = true;
+        yield return new WaitForSeconds(delay);
+        img.enabled = false;
     }
 }
