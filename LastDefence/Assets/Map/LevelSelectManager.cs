@@ -10,6 +10,15 @@ public class LevelSelectManager : MonoBehaviour {
 	
 	public bool[] levelUnlocked;
 	
+	public int positionSelector;
+	public float distanceBelowLock;
+	
+	public string[] levelName;
+	
+	public float moveSpeed;
+	
+	private bool isPressed;
+	
 	//PlayerPrefs.SetInt(level1Tag, 1);
 
 	// Use this for initialization
@@ -23,17 +32,51 @@ public class LevelSelectManager : MonoBehaviour {
 			}
 			else{
 				levelUnlocked[i] = true;
-		}
+			}
 		
-		if(levelUnlocked[i]){
-			locks[i].SetActive(false);
+		
+			if(levelUnlocked[i]){
+				locks[i].SetActive(false);
+			}
 		}
+		transform.position = locks[positionSelector].transform.position + new Vector3(0, distanceBelowLock, 0); 
 		
 	}
 	
-	// Update is called once per frame
-	//void Update () {
+	//Update is called once per frame
+	void Update () {
 		
-	//}
+		
+		if(!isPressed)
+		{
+			if(Input.GetAxis("Horizontal")> .25f){
+				positionSelector += 1;
+				isPressed = true;
+			}
+			
+			else if(Input.GetAxis("Horizontal") < -.25f){
+				positionSelector -= 1;
+				isPressed = true;
+			}
+			
+			if(positionSelector >= levelTags.Length){
+				positionSelector = levelTags.Length - 1;
+			}
+			
+			
+			if(positionSelector < 0){
+				positionSelector = 0;
+			}
+			
+		}
+		
+		if(isPressed){
+			if(Input.GetAxis("Horizontal") < .25f && Input.GetAxis("Horizontal")> -.25f){
+				isPressed = false;
+			}
+			
+		}
+		
+		transform.position = Vector3.MoveTowards(transform.position, locks[positionSelector].transform.position + new Vector3(0, distanceBelowLock, 0), moveSpeed * Time.deltaTime);
 	}
 }
