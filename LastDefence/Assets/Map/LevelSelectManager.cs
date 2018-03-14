@@ -10,7 +10,7 @@ public class LevelSelectManager : MonoBehaviour {
 	
 	public bool[] levelUnlocked;
 	
-	PlayerPrefs.SetInt(level1Tag, 1);
+	//PlayerPrefs.SetInt(level1Tag, 1);
 
 	// Use this for initialization
 	void Start () {
@@ -32,7 +32,8 @@ public class LevelSelectManager : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	//void Update () {
 		
+	//}
 	}
 }
