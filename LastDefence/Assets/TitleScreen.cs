@@ -7,7 +7,7 @@ public class TitleScreen : MonoBehaviour {
 
 	void Update() {
 		if (Input.anyKeyDown) {
-			SceneManager.LoadScene("MenuScreen");
+			SceneManager.LoadScene("Shop");
 		}
 	}
 
