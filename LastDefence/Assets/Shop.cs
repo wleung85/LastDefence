@@ -16,7 +16,6 @@ public class Shop : MonoBehaviour
     public int ratePrice;
     public int healthPrice;
     public int speedPrice;
-    public int fundNow;
     public int sizeLevel;
     public int rateLevel;
     public int healthLevel;
@@ -33,10 +32,15 @@ public class Shop : MonoBehaviour
     public Image speedL1;
     public Image speedL2;
     public Image speedL3;
+	GameObject GM;	
+	private GameManager GMScript;
+	
     
 
     public void Start()
     {
+		GM = GameObject.Find("GameManager");		//GameObject.Find to get GameManager
+		GMScript = GM.GetComponent<GameManager>();	//GetComponent to access GameManager script inside object
         fund = GameObject.Find("Funds").GetComponent<Text>();
         size = GameObject.Find("SizePrice").GetComponent<Text>();
         rate = GameObject.Find("RatePrice").GetComponent<Text>();
@@ -44,8 +48,7 @@ public class Shop : MonoBehaviour
         speed = GameObject.Find("SpeedPrice").GetComponent<Text>();
 
         //get player's $$ / item cost
-        fundNow = 35000;
-        ChangeValue(fund, fundNow);
+        ChangeValue(fund, GMScript.score);
 
         sizeLevel = 0;
         rateLevel = 1;
@@ -150,7 +153,7 @@ public class Shop : MonoBehaviour
     }
 
     public void Back(){
-        SceneManager.LoadScene("Map");
+        SceneManager.LoadScene("LevelMap");
     }
 
     public void ChangeValue(Text obj, int newValue){
@@ -163,7 +166,7 @@ public class Shop : MonoBehaviour
 
     public void BuySize(){
         Debug.Log("buying size...");
-        if (fundNow < sizePrice){
+        if (GMScript.score < sizePrice){
             NoFunds();
         } else {
             Debug.Log("Enough funds");
@@ -174,16 +177,16 @@ public class Shop : MonoBehaviour
                 invalid.enabled = true;
                 valid.enabled = false;
                 sizeLevel++;
-                fundNow = fundNow - sizePrice;
+                GMScript.score = GMScript.score - sizePrice;
                 sizePrice = sizePrice + 5000;
                 ChangeValue(size, 0);
-                ChangeValue(fund, fundNow);
+                ChangeValue(fund, GMScript.score);
             } else {
                 sizeLevel++;
-                fundNow = fundNow - sizePrice;
+                GMScript.score = GMScript.score - sizePrice;
                 sizePrice = sizePrice + 5000;
                 ChangeValue(size, sizePrice);
-                ChangeValue(fund, fundNow);
+                ChangeValue(fund, GMScript.score);
             }
             updateSizeLevel();
         }
@@ -191,7 +194,7 @@ public class Shop : MonoBehaviour
 
     public void BuyRate(){
         Debug.Log("buying rate...");
-        if (fundNow < ratePrice){
+        if (GMScript.score < ratePrice){
             NoFunds();
         } else {
             Debug.Log("Enough funds");
@@ -202,16 +205,16 @@ public class Shop : MonoBehaviour
                 invalid.enabled = true;
                 valid.enabled = false;
                 rateLevel++;
-                fundNow = fundNow - ratePrice;
+                GMScript.score = GMScript.score - ratePrice;
                 ratePrice = ratePrice + 5000;
                 ChangeValue(rate, 0);
-                ChangeValue(fund, fundNow);
+                ChangeValue(fund, GMScript.score);
             } else {
                 rateLevel++;
-                fundNow = fundNow - ratePrice;
+                GMScript.score = GMScript.score - ratePrice;
                 ratePrice = ratePrice + 5000;
                 ChangeValue(rate, ratePrice);
-                ChangeValue(fund, fundNow);
+                ChangeValue(fund, GMScript.score);
             }
             updateRateLevel();
         }
@@ -220,7 +223,7 @@ public class Shop : MonoBehaviour
     public void BuyHealth()
     {
         Debug.Log("buying health...");
-        if (fundNow < healthPrice) {
+        if (GMScript.score < healthPrice) {
             NoFunds();
         } else {
             Debug.Log("Enough funds");
@@ -231,16 +234,16 @@ public class Shop : MonoBehaviour
                 invalid.enabled = true;
                 valid.enabled = false;
                 healthLevel++;
-                fundNow = fundNow - healthPrice;
+                GMScript.score = GMScript.score - healthPrice;
                 healthPrice = healthPrice + 5000;
                 ChangeValue(health, 0);
-                ChangeValue(fund, fundNow);
+                ChangeValue(fund, GMScript.score);
             } else {
                 healthLevel++;
-                fundNow = fundNow - healthPrice;
+                GMScript.score = GMScript.score - healthPrice;
                 healthPrice = healthPrice + 5000;
                 ChangeValue(health, healthPrice);
-                ChangeValue(fund, fundNow);
+                ChangeValue(fund, GMScript.score);
             }
             updateHealthLevel();
         }
@@ -248,7 +251,7 @@ public class Shop : MonoBehaviour
 
     public void BuySpeed() {
         Debug.Log("buying speed...");
-        if (fundNow < speedPrice) {
+        if (GMScript.score < speedPrice) {
             NoFunds();
         } else {
             Debug.Log("Enough funds");
@@ -259,16 +262,16 @@ public class Shop : MonoBehaviour
                 invalid.enabled = true;
                 valid.enabled = false;
                 speedLevel++;
-                fundNow = fundNow - speedPrice;
+                GMScript.score = GMScript.score - speedPrice;
                 speedPrice = speedPrice + 5000;
                 ChangeValue(speed, 0);
-                ChangeValue(fund, fundNow);
+                ChangeValue(fund, GMScript.score);
             } else {
                 speedLevel++;
-                fundNow = fundNow - speedPrice;
+                GMScript.score = GMScript.score - speedPrice;
                 speedPrice = speedPrice + 5000;
                 ChangeValue(speed, speedPrice);
-                ChangeValue(fund, fundNow);
+                ChangeValue(fund, GMScript.score);
             }
             updateSpeedLevel();
         }

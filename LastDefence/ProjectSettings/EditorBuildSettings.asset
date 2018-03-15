@@ -14,3 +14,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Game.unity
     guid: b7ba5cdaafba1a848a2d6bb8f38a085d
+  - enabled: 1
+    path: Assets/Shop.unity
+    guid: 56822769e009a6b4ab3449f5a5dc8f00
+  - enabled: 1
+    path: Assets/LevelMap.unity
+    guid: 5c974db53e0190f42b09d119a6730f72
