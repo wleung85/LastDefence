@@ -13,6 +13,7 @@ public class FollowTankArm : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		transform.position = Vector3.MoveTowards(transform.position, tankArm.transform.position, 100);
+		transform.position = tankArm.transform.position ;
+		transform.rotation = tankArm.transform.rotation;
 	}
 }

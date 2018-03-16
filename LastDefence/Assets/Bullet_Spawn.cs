@@ -19,7 +19,6 @@ public class Bullet_Spawn : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		bool shoot = Input.GetMouseButtonDown(0);
-		
 		if(shoot){
 			Instantiate(bullet, spawnPoint.position, spawnPoint.rotation);
 		}
