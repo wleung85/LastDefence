@@ -125,6 +125,8 @@ public class upgradesDummy : MonoBehaviour {
 
     IEnumerator BlinkHealth(Image img)
     {
+        AudioSource a = GameObject.Find("Damage").GetComponent<AudioSource>();
+        a.Play();
         img.enabled = false;
         yield return new WaitForSeconds(0.04F);
         img.enabled = true;
