@@ -1,0 +1,140 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+
+
+public class upgradesDummy : MonoBehaviour {
+
+
+	GameObject GM;	
+	private GameManager GMScript;
+    public int health = 3;
+    public bool halfLife = false;
+
+    public Image L1;
+    public Image L2;
+    public Image L3;
+    public Image L4;
+    public Image L5;
+    public Image L6;
+
+    public Image H1;
+    public Image H2;
+    public Image H3;
+    public Image H4;
+    public Image H5;
+    public Image H6;
+
+    public void Start()
+    {
+        GM = GameObject.Find("GameManager");        //GameObject.Find to get GameManager
+        GMScript = GM.GetComponent<GameManager>();  //GetComponent to access GameManager script inside object
+
+        L1 = GameObject.Find("life1").GetComponent<Image>();
+        L2 = GameObject.Find("life2").GetComponent<Image>();
+        L3 = GameObject.Find("life3").GetComponent<Image>();
+
+        H1 = GameObject.Find("half1").GetComponent<Image>();
+        H2 = GameObject.Find("half2").GetComponent<Image>();
+        H3 = GameObject.Find("half3").GetComponent<Image>();
+
+        if (GMScript.healthLevel >= 1) {
+            health = 4;
+            L4 = GameObject.Find("life4").GetComponent<Image>();
+            H4 = GameObject.Find("half4").GetComponent<Image>();
+            L4.enabled = true;
+            H4.enabled = true;
+        }
+        if (GMScript.healthLevel >= 2){
+            health = 5;
+            L5 = GameObject.Find("life5").GetComponent<Image>();
+            H5 = GameObject.Find("half5").GetComponent<Image>();
+            L5.enabled = true;
+            H5.enabled = true;
+        }
+        if (GMScript.healthLevel >= 3) {
+            health = 6;
+            L6 = GameObject.Find("life6").GetComponent<Image>();
+            H6 = GameObject.Find("half6").GetComponent<Image>();
+            L6.enabled = true;
+            H5.enabled = true;
+        }
+    }
+
+    public void hitHealth() {
+        Image img;
+        if (!halfLife) {
+            if (health == 1) {
+                img = L1;
+            } else {
+                if (health == 2) {
+                    img = L2;
+                } else{
+                    if (health == 3) {
+                        img = L3;
+                    } else {
+                        if (health == 4) {
+                            img = L4;
+                        } else {
+                            if (health == 5) {
+                                img = L5;
+                            } else {
+                                img = L6;
+                            }
+                        }
+                    }
+                }
+            }
+            halfLife = true;
+        } else {
+            if (health == 1) {
+                img = H1;
+            } else {
+                if (health == 2){
+                    img = H2;
+                } else {
+                    if (health == 3) {
+                        img = H3;
+                    } else  {
+                        if (health == 4) {
+                            img = H4;
+                        } else {
+                            if (health == 5)  {
+                                img = H5;
+                            } else{
+                                img = H6;
+                            }
+                        }
+                    }
+                }
+            }
+            halfLife = false;
+            health--;
+        }
+        StartCoroutine(BlinkHealth(img));
+        if (health == 0){
+            gameOver();
+        }
+    }
+
+    public void gameOver(){
+        Debug.Log("GAME OVER");
+    }
+
+    IEnumerator BlinkHealth(Image img)
+    {
+        AudioSource a = GameObject.Find("Damage").GetComponent<AudioSource>();
+        a.Play();
+        img.enabled = false;
+        yield return new WaitForSeconds(0.04F);
+        img.enabled = true;
+        yield return new WaitForSeconds(0.04F);
+        img.enabled = false;
+        yield return new WaitForSeconds(0.04F);
+        img.enabled = true;
+        yield return new WaitForSeconds(0.04F);
+        img.enabled = false;
+    }
+}

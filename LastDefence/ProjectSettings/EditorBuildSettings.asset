@@ -20,3 +20,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/LevelMap.unity
     guid: 5c974db53e0190f42b09d119a6730f72
+  - enabled: 1
+    path: Assets/Game HEALTH SCORE.unity
+    guid: 015e86ea4678a4d44903edec00b63c6c

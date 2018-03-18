@@ -6,8 +6,12 @@ public class GameManager : MonoBehaviour {
 
 	public static GameManager instance = null;
 	public int score = 35000;
+    public int sizeLevel = 0;
+    public int rateLevel = 1;
+    public int healthLevel = 2;
+    public int speedLevel = 3;
 
-	void Awake () {
+    void Awake () {
 		if (instance == null) 
 			instance = this;
 		else if (instance != null)
