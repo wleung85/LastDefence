@@ -219,6 +219,73 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.028086126, y: 7.483441}
   m_EdgeRadius: 0
+--- !u!1 &406757536
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 406757537}
+  - component: {fileID: 406757538}
+  - component: {fileID: 406757539}
+  m_Layer: 8
+  m_Name: SpawnPoint
+  m_TagString: FirePoint
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &406757537
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 406757536}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.68, y: -2.699, z: 0}
+  m_LocalScale: {x: 0.20157753, y: 0.20157756, z: 0.20157756}
+  m_Children: []
+  m_Father: {fileID: 1724384195}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &406757538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 406757536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ce220340ea0cf544be959aa541b9667, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tankArm: {fileID: 1258524798}
+--- !u!61 &406757539
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 406757536}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &595616865
 GameObject:
   m_ObjectHideFlags: 0
@@ -335,7 +402,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1258524798}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.475, y: -2.681, z: 0.07421875}
+  m_LocalPosition: {x: -0.393, y: -2.675, z: 0.07421875}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1724384195}
@@ -507,6 +574,7 @@ GameObject:
   - component: {fileID: 1724384197}
   - component: {fileID: 1724384198}
   - component: {fileID: 1724384196}
+  - component: {fileID: 1724384199}
   m_Layer: 8
   m_Name: Tank
   m_TagString: Player
@@ -570,6 +638,7 @@ Transform:
   m_Children:
   - {fileID: 1258524799}
   - {fileID: 1844992387}
+  - {fileID: 406757537}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -630,6 +699,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.6796476, y: 1.2340174}
   m_EdgeRadius: 0
+--- !u!114 &1724384199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1724384193}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f4778b6c4f0dc24b8706247040f821f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 1812121278905128, guid: 9c5dfd5fdb2645e4aa400ff8ae64e2a4, type: 2}
+  spawnPoint: {fileID: 406757537}
 --- !u!1 &1817060479
 GameObject:
   m_ObjectHideFlags: 0
