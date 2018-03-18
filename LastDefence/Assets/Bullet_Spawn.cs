@@ -7,6 +7,7 @@ public class Bullet_Spawn : MonoBehaviour {
 	public GameObject bullet;
 	public Transform spawnPoint;
 	
+	
 	void fixedUpdate(){
 		
 	}
@@ -20,7 +21,12 @@ public class Bullet_Spawn : MonoBehaviour {
 	void Update () {
 		bool shoot = Input.GetMouseButtonDown(0);
 		if(shoot){
-			Instantiate(bullet, spawnPoint.position, spawnPoint.rotation);
+			GameObject bulletHolder = Instantiate(bullet) as GameObject;
+			bulletHolder.transform.position = spawnPoint.transform.position;
+			bulletHolder.transform.rotation = spawnPoint.transform.rotation;
+			AudioSource shootSound = GetComponent<AudioSource>();
+			shootSound.Play();
+			
 		}
 	}
 }
