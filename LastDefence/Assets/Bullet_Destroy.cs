@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Bullet_Destroy : MonoBehaviour {
 
 	public Transform bullet;

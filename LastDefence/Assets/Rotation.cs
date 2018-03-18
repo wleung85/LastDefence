@@ -7,7 +7,7 @@ public class Rotation : MonoBehaviour {
 	public int rotationOffset = 0;
 	public float maxAngleFront = -10f;
 	public float maxAngleBack = -175f;
-	private float newAngle;
+	public float newAngle;
 
 	// Update is called once per frame
 	void Update () {

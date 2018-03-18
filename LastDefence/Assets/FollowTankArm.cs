@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class FollowTankArm : MonoBehaviour {
-	
-	public GameObject tankArm;
 
+	[SerializeField]
+	Transform shootingPoint;
 	// Use this for initialization
 	void Start () {
 		
@@ -13,7 +13,7 @@ public class FollowTankArm : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		transform.position = tankArm.transform.position ;
-		transform.rotation = tankArm.transform.rotation;
+		transform.position = shootingPoint.transform.position;
+		transform.rotation = shootingPoint.transform.rotation;
 	}
 }
