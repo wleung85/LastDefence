@@ -16,10 +16,6 @@ public class Shop : MonoBehaviour
     public int ratePrice;
     public int healthPrice;
     public int speedPrice;
-    public int sizeLevel;
-    public int rateLevel;
-    public int healthLevel;
-    public int speedLevel;
     public Image sizeL1;
     public Image sizeL2;
     public Image sizeL3;
@@ -50,15 +46,10 @@ public class Shop : MonoBehaviour
         //get player's $$ / item cost
         ChangeValue(fund, GMScript.score);
 
-        sizeLevel = 0;
-        rateLevel = 1;
-        healthLevel = 2;
-        speedLevel = 3;
-
-        sizePrice = (sizeLevel + 1) * 5000; 
-        ratePrice = (rateLevel + 1) * 5000;
-        healthPrice = (healthLevel + 1) * 5000;
-        speedPrice = (speedLevel + 1) * 5000;
+        sizePrice = (GMScript.sizeLevel + 1) * 5000; 
+        ratePrice = (GMScript.rateLevel + 1) * 5000;
+        healthPrice = (GMScript.healthLevel + 1) * 5000;
+        speedPrice = (GMScript.speedLevel + 1) * 5000;
 
 
         //display levels/cost of each item
@@ -75,9 +66,8 @@ public class Shop : MonoBehaviour
         speedL2 = GameObject.Find("SpeedL2").GetComponent<Image>();
         speedL3 = GameObject.Find("SpeedL3").GetComponent<Image>();
 
-        if (sizeLevel == 3) {
+        if (GMScript.sizeLevel == 3) {
             sizeL3.enabled = true;
-            Debug.Log("max size reached");
             ChangeValue(size, 0);
             Image invalid = GameObject.Find("SizeInvalid").GetComponent<Image>();
             invalid.enabled = true;
@@ -85,18 +75,17 @@ public class Shop : MonoBehaviour
             ChangeValue(size, sizePrice);
             Image valid = GameObject.Find("SizeValidButton").GetComponent<Image>();
             valid.enabled = true;
-            if (sizeLevel == 2) {
+            if (GMScript.sizeLevel == 2) {
                 sizeL2.enabled = true;
             } else {
-                if (sizeLevel == 1) {
+                if (GMScript.sizeLevel == 1) {
                     sizeL1.enabled = true;
                 }
             }
         }
 
-        if (rateLevel == 3){
+        if (GMScript.rateLevel == 3){
             rateL3.enabled = true;
-            Debug.Log("max rate reached");
             ChangeValue(rate, 0);
             Image invalid = GameObject.Find("RateInvalid").GetComponent<Image>();
             invalid.enabled = true;
@@ -104,18 +93,17 @@ public class Shop : MonoBehaviour
             ChangeValue(rate, ratePrice);
             Image valid = GameObject.Find("RateValidButton").GetComponent<Image>();
             valid.enabled = true;
-            if (rateLevel == 2) {
+            if (GMScript.rateLevel == 2) {
                 rateL2.enabled = true;
             } else {
-                if (rateLevel == 1) {
+                if (GMScript.rateLevel == 1) {
                     rateL1.enabled = true;
                 }
             }
         }
 
-        if (healthLevel == 3) {
+        if (GMScript.healthLevel == 3) {
             healthL3.enabled = true;
-            Debug.Log("max health reached");
             ChangeValue(health, 0);
             Image invalid = GameObject.Find("HealthInvalid").GetComponent<Image>();
             invalid.enabled = true;
@@ -123,18 +111,17 @@ public class Shop : MonoBehaviour
             ChangeValue(health, healthPrice);
             Image valid = GameObject.Find("HealthValidButton").GetComponent<Image>();
             valid.enabled = true;
-            if (healthLevel == 2) {
+            if (GMScript.healthLevel == 2) {
                 healthL2.enabled = true;
             } else {
-                if (healthLevel == 1) {
+                if (GMScript.healthLevel == 1) {
                     healthL1.enabled = true;
                 }
             }
         }
 
-        if (speedLevel == 3) {
+        if (GMScript.speedLevel == 3) {
             speedL3.enabled = true;
-            Debug.Log("max size reached");
             ChangeValue(speed, 0);
             Image invalid = GameObject.Find("SpeedInvalid").GetComponent<Image>();
             invalid.enabled = true;
@@ -142,10 +129,10 @@ public class Shop : MonoBehaviour
             ChangeValue(speed, speedPrice);
             Image valid = GameObject.Find("SpeedValidButton").GetComponent<Image>();
             valid.enabled = true;
-            if (speedLevel == 2) {
+            if (GMScript.speedLevel == 2) {
                 speedL2.enabled = true;
             } else {
-                if (speedLevel == 1) {
+                if (GMScript.speedLevel == 1) {
                     speedL1.enabled = true;
                 }
             }
@@ -165,24 +152,23 @@ public class Shop : MonoBehaviour
     }
 
     public void BuySize(){
-        Debug.Log("buying size...");
         if (GMScript.score < sizePrice){
             NoFunds();
         } else {
-            Debug.Log("Enough funds");
+            Debug.Log("buying size...Enough funds");
             if (sizePrice >= 15000) {
                 Debug.Log("max size reached");
                 Image invalid = GameObject.Find("SizeInvalid").GetComponent<Image>();
                 Image valid = GameObject.Find("SizeValidButton").GetComponent<Image>();
                 invalid.enabled = true;
                 valid.enabled = false;
-                sizeLevel++;
+                GMScript.sizeLevel++;
                 GMScript.score = GMScript.score - sizePrice;
                 sizePrice = sizePrice + 5000;
                 ChangeValue(size, 0);
                 ChangeValue(fund, GMScript.score);
             } else {
-                sizeLevel++;
+                GMScript.sizeLevel++;
                 GMScript.score = GMScript.score - sizePrice;
                 sizePrice = sizePrice + 5000;
                 ChangeValue(size, sizePrice);
@@ -193,24 +179,23 @@ public class Shop : MonoBehaviour
     }
 
     public void BuyRate(){
-        Debug.Log("buying rate...");
         if (GMScript.score < ratePrice){
             NoFunds();
         } else {
-            Debug.Log("Enough funds");
+            Debug.Log("buying rate...Enough funds");
             if (ratePrice >= 15000) {
                 Debug.Log("max rate reached");
                 Image invalid = GameObject.Find("RateInvalid").GetComponent<Image>();
                 Image valid = GameObject.Find("RateValidButton").GetComponent<Image>();
                 invalid.enabled = true;
                 valid.enabled = false;
-                rateLevel++;
+                GMScript.rateLevel++;
                 GMScript.score = GMScript.score - ratePrice;
                 ratePrice = ratePrice + 5000;
                 ChangeValue(rate, 0);
                 ChangeValue(fund, GMScript.score);
             } else {
-                rateLevel++;
+                GMScript.rateLevel++;
                 GMScript.score = GMScript.score - ratePrice;
                 ratePrice = ratePrice + 5000;
                 ChangeValue(rate, ratePrice);
@@ -222,24 +207,23 @@ public class Shop : MonoBehaviour
 
     public void BuyHealth()
     {
-        Debug.Log("buying health...");
         if (GMScript.score < healthPrice) {
             NoFunds();
         } else {
-            Debug.Log("Enough funds");
+            Debug.Log("buying health...");
             if (healthPrice >= 15000) {
                 Debug.Log("max health reached");
                 Image invalid = GameObject.Find("HealthInvalid").GetComponent<Image>();
                 Image valid = GameObject.Find("HealthValidButton").GetComponent<Image>();
                 invalid.enabled = true;
                 valid.enabled = false;
-                healthLevel++;
+                GMScript.healthLevel++;
                 GMScript.score = GMScript.score - healthPrice;
                 healthPrice = healthPrice + 5000;
                 ChangeValue(health, 0);
                 ChangeValue(fund, GMScript.score);
             } else {
-                healthLevel++;
+                GMScript.healthLevel++;
                 GMScript.score = GMScript.score - healthPrice;
                 healthPrice = healthPrice + 5000;
                 ChangeValue(health, healthPrice);
@@ -250,24 +234,23 @@ public class Shop : MonoBehaviour
     }
 
     public void BuySpeed() {
-        Debug.Log("buying speed...");
         if (GMScript.score < speedPrice) {
             NoFunds();
         } else {
-            Debug.Log("Enough funds");
+            Debug.Log("buying speed...Enough funds");
             if (speedPrice >= 15000) {
                 Debug.Log("max size reached");
                 Image invalid = GameObject.Find("SpeedInvalid").GetComponent<Image>();
                 Image valid = GameObject.Find("SpeedValidButton").GetComponent<Image>();
                 invalid.enabled = true;
                 valid.enabled = false;
-                speedLevel++;
+                GMScript.speedLevel++;
                 GMScript.score = GMScript.score - speedPrice;
                 speedPrice = speedPrice + 5000;
                 ChangeValue(speed, 0);
                 ChangeValue(fund, GMScript.score);
             } else {
-                speedLevel++;
+                GMScript.speedLevel++;
                 GMScript.score = GMScript.score - speedPrice;
                 speedPrice = speedPrice + 5000;
                 ChangeValue(speed, speedPrice);
@@ -279,10 +262,10 @@ public class Shop : MonoBehaviour
 
     public void updateSizeLevel()
     {
-        if (sizeLevel == 1) {
+        if (GMScript.sizeLevel == 1) {
             sizeL1.enabled = true;
         } else {
-            if (sizeLevel == 2) {
+            if (GMScript.sizeLevel == 2) {
                 sizeL2.enabled = true;
             } else {
                 sizeL3.enabled = true;
@@ -292,10 +275,10 @@ public class Shop : MonoBehaviour
 
     public void updateRateLevel()
     {
-        if (rateLevel == 1) {
+        if (GMScript.rateLevel == 1) {
             rateL1.enabled = true;
         } else {
-            if (rateLevel == 2) {
+            if (GMScript.rateLevel == 2) {
                 rateL2.enabled = true;
             } else {
                 rateL3.enabled = true;
@@ -305,10 +288,10 @@ public class Shop : MonoBehaviour
 
     public void updateHealthLevel()
     {
-        if (healthLevel == 1) {
+        if (GMScript.healthLevel == 1) {
             healthL1.enabled = true;
         } else {
-            if (healthLevel == 2) {
+            if (GMScript.healthLevel == 2) {
                 healthL2.enabled = true;
             } else {
                 healthL3.enabled = true;
@@ -318,10 +301,10 @@ public class Shop : MonoBehaviour
 
     public void updateSpeedLevel()
     {
-        if (speedLevel == 1) {
+        if (GMScript.speedLevel == 1) {
             speedL1.enabled = true;
         } else {
-            if (speedLevel == 2) {
+            if (GMScript.speedLevel == 2) {
                 speedL2.enabled = true;
             } else {
                 speedL3.enabled = true;
@@ -340,5 +323,12 @@ public class Shop : MonoBehaviour
         img.enabled = true;
         yield return new WaitForSeconds(delay);
         img.enabled = false;
+    }
+
+
+
+    public void goToGame()
+    {
+        SceneManager.LoadScene("Game HEALTH SCORE");
     }
 }
