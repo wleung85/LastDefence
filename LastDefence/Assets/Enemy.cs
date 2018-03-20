@@ -10,30 +10,51 @@ public class Enemy : MonoBehaviour {
     public float bombSpeed = 5f;
     public GameObject bomb;
     public Transform spawnPoint;
-    public GameObject fallingBomb;
+    private GameObject fallingBomb;
+    private bool alreadyShot;
+    private float spawnTime;
+    private float time;
 
     // Use this for initialization
     void Start()
     {
         bomb = GameObject.Find("Bomb");
         spawnPoint = GameObject.Find("Plane").transform;
+        Destroy();
+        alreadyShot = false;
+        SetRandomTime();
+        time = 0;
     }
 	
 	// Update is called once per frame
 	void Update () 
     {
         transform.Translate(Vector3.left * speed * Time.deltaTime);
-        Destroy();
-        bool shoot = Input.GetKeyDown(KeyCode.A);
-        if (shoot)
+
+        if (!alreadyShot)
         {
-            fallingBomb = Instantiate(bomb, spawnPoint.position, spawnPoint.rotation);
+            time += Time.deltaTime;
+            if (time >= spawnTime)
+            {
+                fallingBomb = Instantiate(bomb, spawnPoint.position, spawnPoint.rotation);
+                alreadyShot = true;
+            }
         }
-        fallingBomb.transform.Translate(Vector3.down * bombSpeed * Time.deltaTime);
+
+        if (alreadyShot)
+        {
+            fallingBomb.transform.Translate(Vector3.down * bombSpeed * Time.deltaTime);
+        }
 	}
 
     void Destroy ()
     {
         Destroy(gameObject, 5);
+    }
+
+    void SetRandomTime()
+    {
+        spawnTime = Random.Range(0, 5);
+        Debug.Log(spawnTime);
     }
 }
