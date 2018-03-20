@@ -322,7 +322,7 @@ GameObject:
   - component: {fileID: 715618885}
   - component: {fileID: 715618884}
   m_Layer: 0
-  m_Name: plane1
+  m_Name: Plane
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -340,7 +340,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  bullet: {fileID: 0}
+  bombSpeed: 5
+  bomb: {fileID: 0}
   spawnPoint: {fileID: 0}
 --- !u!212 &715618885
 SpriteRenderer:
@@ -728,7 +729,7 @@ GameObject:
   - component: {fileID: 1787140081}
   - component: {fileID: 1787140080}
   m_Layer: 0
-  m_Name: bomb1
+  m_Name: Bomb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

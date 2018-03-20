@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class Enemy : MonoBehaviour {
 
     public float speed = 5f;
-    public float bombSpeed = 5f;
+    public float bombSpeed = 5;
     public GameObject bomb;
     public Transform spawnPoint;
     private GameObject fallingBomb;
@@ -49,12 +49,12 @@ public class Enemy : MonoBehaviour {
 
     void Destroy ()
     {
-        Destroy(gameObject, 5);
+        Destroy(gameObject, 9);
     }
 
     void SetRandomTime()
     {
-        spawnTime = Random.Range(0, 5);
+        spawnTime = Random.Range(1, 5);
         Debug.Log(spawnTime);
     }
 }
