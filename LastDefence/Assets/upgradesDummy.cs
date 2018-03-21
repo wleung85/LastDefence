@@ -27,6 +27,8 @@ public class upgradesDummy : MonoBehaviour {
     public Image H5;
     public Image H6;
 
+    public Text score;
+
     public void Start()
     {
         GM = GameObject.Find("GameManager");        //GameObject.Find to get GameManager
@@ -39,6 +41,10 @@ public class upgradesDummy : MonoBehaviour {
         H1 = GameObject.Find("half1").GetComponent<Image>();
         H2 = GameObject.Find("half2").GetComponent<Image>();
         H3 = GameObject.Find("half3").GetComponent<Image>();
+
+        score = GameObject.Find("Score").GetComponent<Text>();
+
+        ChangeValue(score, GMScript.score);
 
         if (GMScript.healthLevel >= 1) {
             health = 4;
@@ -136,5 +142,21 @@ public class upgradesDummy : MonoBehaviour {
         img.enabled = true;
         yield return new WaitForSeconds(0.04F);
         img.enabled = false;
+    }
+
+
+    public void ChangeValue(Text obj, int newValue)
+    {
+        if (newValue == 0){
+            obj.text = "";
+        } else {
+            obj.text = "$".Insert(1, newValue.ToString());
+        }
+    }
+
+    public void DummyIncreaseScore()
+    {
+        GMScript.score = GMScript.score + 200;
+        ChangeValue(score, GMScript.score);
     }
 }
