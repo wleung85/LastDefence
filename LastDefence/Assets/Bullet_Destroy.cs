@@ -17,4 +17,12 @@ public class Bullet_Destroy : MonoBehaviour {
 		if(!GetComponent<Renderer>().isVisible)
 			Destroy(gameObject);
 	}
+    void OnCollisionEnter2D(Collision2D collisionInfo)
+    {
+        if (collisionInfo.collider.tag.Equals("EnemyProjectile") || collisionInfo.collider.tag.Equals("Enemy")) 
+        {
+            Destroy(gameObject);
+        }
+
+    }
 }
