@@ -6,8 +6,8 @@ using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour {
 
-    public float speed = 5f;
-    public float bombSpeed = 5;
+    public static float speed = 5f;
+    public static float bombSpeed = 5;
     public GameObject bomb;
     public Transform spawnPoint;
     private GameObject fallingBomb;
