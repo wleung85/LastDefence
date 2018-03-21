@@ -15,24 +15,17 @@ public class LevelManager : MonoBehaviour {
         minY = 0f;
         maxY = 3.5f;
         time = 0;
-        spawnCycle();
     }
 
     void Update()
     {
         time += Time.deltaTime;
-    }
-
-    private IEnumerator spawnCycle()
-    {
-        while (true)
-        {
-            if (time >= 4)
+       
+        if (time >= 2)
             {
-                time = 0;
-                createEnemy1();
+               time = 0;
+               createEnemy1();
             }
-        }
     }
 
     public void createEnemy1()
