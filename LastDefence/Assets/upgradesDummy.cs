@@ -150,12 +150,13 @@ public class upgradesDummy : MonoBehaviour {
         if (newValue == 0){
             obj.text = "";
         } else {
-            obj.text = "$".Insert(1, newValue.ToString());
+            obj.text = "Score: ".Insert(7, newValue.ToString());
         }
     }
 
     public void DummyIncreaseScore()
     {
+        Debug.Log("hit plane");
         GMScript.score = GMScript.score + 200;
         ChangeValue(score, GMScript.score);
     }

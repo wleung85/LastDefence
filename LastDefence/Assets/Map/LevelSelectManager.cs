@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelSelectManager : MonoBehaviour {
 	
@@ -78,5 +79,18 @@ public class LevelSelectManager : MonoBehaviour {
 		}
 		
 		transform.position = Vector3.MoveTowards(transform.position, locks[positionSelector].transform.position + new Vector3(0, distanceBelowLock, 0), moveSpeed * Time.deltaTime);
+		
+		if(Input.GetKeyDown("space")) {
+			if (positionSelector == 2){
+				SceneManager.LoadScene("Shop");
+			}
+			if (positionSelector == 0) {
+				SceneManager.LoadScene("Game");
+			}
+			else {
+				Debug.Log("Level closed");
+			}
+		}
+		
 	}
 }
