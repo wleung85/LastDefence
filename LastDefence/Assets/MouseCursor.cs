@@ -6,10 +6,10 @@ public class MouseCursor : MonoBehaviour {
 
 	public Texture2D crosshairTexture;
 	public CursorMode cursorMode = CursorMode.Auto;
-	public Vector2 hotSpot = Vector2.zero;
+	public Vector2 hotSpot = new Vector2(65f,65f);
 
-	int cursorSizeX = 16;
-	int cursorSizeY = 16;
+	//int cursorSizeX = 16;
+	//int cursorSizeY = 16;
 
 	void Start() {
 		Cursor.SetCursor(crosshairTexture, hotSpot, cursorMode);
