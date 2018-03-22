@@ -71,7 +71,6 @@ public class DialogueManager : MonoBehaviour {
 		if (!textRunning) {
 			if (sentences.Count == 0) {
 				if (characterlines.Count == 0) {
-					Debug.Log("Change scene(1)");
 					changeScene();
 				}
 				else {
@@ -131,7 +130,6 @@ public class DialogueManager : MonoBehaviour {
 
 	public void changeScene() {
 		if (cutsceneDone) {
-			Debug.Log("Change scene(2)");
 			SceneManager.LoadScene("LevelMap");
 		}
 	}
