@@ -37,13 +37,13 @@ public class DialogueManager : MonoBehaviour {
 		foreach (Dialogue dialogue in allDialoguesScript.dialogues) {
 			characterlines.Enqueue(dialogue);
 		}
-		StartCoroutine(DelayStart());
-	}
-
-	private IEnumerator DelayStart() {
-		yield return new WaitForSeconds(1);	// Waits one second
 		StartDialogue(characterlines.Dequeue());
 	}
+
+	// private IEnumerator DelayStart() {
+	// 	yield return new WaitForSeconds(1);	// Waits one second
+	// 	StartDialogue(characterlines.Dequeue());
+	// }
 
 	public void StartDialogue (Dialogue dialogue) {
 		dialogueBoxAnimator.SetBool("IsOpen",true);
@@ -71,7 +71,8 @@ public class DialogueManager : MonoBehaviour {
 		if (!textRunning) {
 			if (sentences.Count == 0) {
 				if (characterlines.Count == 0) {
-					EndDialogue();
+					Debug.Log("Change scene(1)");
+					changeScene();
 				}
 				else {
 					StartNextDialogue(characterlines.Dequeue());
@@ -101,6 +102,11 @@ public class DialogueManager : MonoBehaviour {
 
 	public void EndSentence(string sentence) {
 		dialogueText.text = sentence;
+		if (sentences.Count == 0 && characterlines.Count == 0) {
+			currCharAnimator.SetBool("CharacterTalking",false);
+			continueButton.text = "EXIT >>";
+			cutsceneDone = true;
+		}
 	}
 
 	IEnumerator TypeSentence (string sentence, bool last) {
@@ -124,7 +130,9 @@ public class DialogueManager : MonoBehaviour {
 	}
 
 	public void changeScene() {
-		if (cutsceneDone)
+		if (cutsceneDone) {
+			Debug.Log("Change scene(2)");
 			SceneManager.LoadScene("LevelMap");
+		}
 	}
 }
