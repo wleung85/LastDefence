@@ -467,7 +467,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 385462511}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: FirePoint4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -496,7 +496,7 @@ GameObject:
   m_Component:
   - component: {fileID: 406757537}
   - component: {fileID: 406757539}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SpawnPoint
   m_TagString: FirePoint
   m_Icon: {fileID: 0}
@@ -923,7 +923,7 @@ GameObject:
   - component: {fileID: 720715182}
   - component: {fileID: 720715183}
   - component: {fileID: 720715184}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Boss1
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -1151,7 +1151,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f410d667c3c4274cb8779797d5b8e54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 0}
+  bulletPrefab: {fileID: 1162964779436556, guid: 083a57366cd4a7f448d1d8c15c0ad793,
+    type: 2}
   bombPrefab: {fileID: 0}
 --- !u!1 &730290766
 GameObject:
@@ -1466,6 +1467,53 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 929700584}
+--- !u!1001 &962166671
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4080780837508448, guid: 083a57366cd4a7f448d1d8c15c0ad793, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -2.54
+      objectReference: {fileID: 0}
+    - target: {fileID: 4080780837508448, guid: 083a57366cd4a7f448d1d8c15c0ad793, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 9.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4080780837508448, guid: 083a57366cd4a7f448d1d8c15c0ad793, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4080780837508448, guid: 083a57366cd4a7f448d1d8c15c0ad793, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4080780837508448, guid: 083a57366cd4a7f448d1d8c15c0ad793, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4080780837508448, guid: 083a57366cd4a7f448d1d8c15c0ad793, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4080780837508448, guid: 083a57366cd4a7f448d1d8c15c0ad793, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4080780837508448, guid: 083a57366cd4a7f448d1d8c15c0ad793, type: 2}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 50909842531502874, guid: 083a57366cd4a7f448d1d8c15c0ad793,
+        type: 2}
+      propertyPath: m_GravityScale
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 083a57366cd4a7f448d1d8c15c0ad793, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1107050919
 GameObject:
   m_ObjectHideFlags: 0
@@ -1542,7 +1590,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1120846110}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: FirePoint5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1821,7 +1869,7 @@ GameObject:
   - component: {fileID: 1258524799}
   - component: {fileID: 1258524801}
   - component: {fileID: 1258524800}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: tankArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2448,7 +2496,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1604089195}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: FirePoint1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2816,7 +2864,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1802405684}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: FirePoint2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3157,7 +3205,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 2041123149}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: FirePoint3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
