@@ -146,6 +146,8 @@ MonoBehaviour:
   maxY: 0
   enemy1: {fileID: 1760171075276322, guid: f3a4dbc75fd2e824b85b959706cb3ff5, type: 2}
   time: 0
+  projectile1: {fileID: 1881726146287040, guid: 277159defc707034395a6acd2722b1bd,
+    type: 2}
 --- !u!4 &32887006
 Transform:
   m_ObjectHideFlags: 0
@@ -172,7 +174,7 @@ GameObject:
   - component: {fileID: 269895543}
   m_Layer: 9
   m_Name: Floor and Side Colliders
-  m_TagString: Untagged
+  m_TagString: Walls
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

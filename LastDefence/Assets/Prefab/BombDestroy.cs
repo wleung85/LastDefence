@@ -6,7 +6,7 @@ public class BombDestroy : MonoBehaviour
 {
     void OnCollisionEnter2D(Collision2D collisionInfo)
     {
-        if (collisionInfo.collider.tag.Equals("Player") || collisionInfo.collider.tag.Equals("PlayerProjectile"))
+        if (collisionInfo.collider.tag.Equals("Player") || collisionInfo.collider.tag.Equals("PlayerProjectile") || collisionInfo.collider.tag.Equals("Walls"))
         {
             Destroy(gameObject);
         }
