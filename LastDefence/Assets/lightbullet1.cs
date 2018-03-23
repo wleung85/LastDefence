@@ -4,13 +4,24 @@ using UnityEngine;
 
 public class lightbullet1 : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-        Physics2D.IgnoreCollision(GetComponent<CircleCollider2D>(), GameObject.Find("Tank").GetComponent<BoxCollider2D>());
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public GameObject explosionPrefab;
+    private GameObject explosionPrefabClone;
+
+    private void Start()
+    {
+    }
+
+    private void OnCollisionEnter2D(Collision2D collisionInfo)
+    {
+        if (collisionInfo.collider.tag.Equals("Obstacle"))
+        {
+            Destroy(gameObject);
+        }
+        else if (collisionInfo.collider.tag.Equals("Player"))
+        {
+            explosionPrefabClone = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+            Destroy(explosionPrefabClone, 1.7f);
+            Destroy(gameObject);
+        }
+    }
 }

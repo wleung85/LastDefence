@@ -11,6 +11,10 @@ public class Boss1Shooting : MonoBehaviour {
     private bool intro = true;
     private bool canShoot = true;
 
+    public float bulletForce = 1;
+    public float bulletFireRate = 2f;
+    float timeToFire = 0;
+
     Transform firePoint1;
     Transform firePoint2;
     Transform firePoint3;
@@ -29,43 +33,46 @@ public class Boss1Shooting : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	    if (intro)
+        if (intro)
         {
             intro = GetComponent<Boss1Controller>().intro;
         }	
         else
         {
-            if (canShoot)
+           if (Time.time > timeToFire)
             {
+                timeToFire = Time.time + bulletFireRate;
                 ShootBullets();
-                canShoot = false;
+                Debug.Log("Time: " + Time.time);
+                Debug.Log("timeToFire: " + timeToFire);
             }
         }
 	}
 
     void ShootBullets()
     {
-        Vector2 projectileDirection = GameObject.Find("Tank").transform.position - firePoint5.position;
-        projectileDirection = projectileDirection*25;
+        Debug.Log("ShootBullets called");
+        Vector2 projectileDirection = (new Vector2((GameObject.Find("Tank").transform.position.x - 0.59f)/3f, GameObject.Find("Tank").transform.position.y)) - (Vector2)firePoint5.position;
+        projectileDirection = projectileDirection*bulletForce;
 
         bulletPrefabClone = Instantiate(bulletPrefab, firePoint1.position, Quaternion.identity);
-        bulletPrefabClone.GetComponent<Rigidbody2D>().AddRelativeForce(projectileDirection); Destroy(bulletPrefabClone, 5f);
+        bulletPrefabClone.GetComponent<Rigidbody2D>().AddForce(projectileDirection, ForceMode2D.Impulse);
         Destroy(bulletPrefabClone, 5f);
 
         bulletPrefabClone = Instantiate(bulletPrefab, firePoint2.position, Quaternion.identity);
-        bulletPrefabClone.GetComponent<Rigidbody2D>().AddForce(projectileDirection); Destroy(bulletPrefabClone, 5f);
+        bulletPrefabClone.GetComponent<Rigidbody2D>().AddForce(projectileDirection, ForceMode2D.Impulse);
         Destroy(bulletPrefabClone, 5f);
 
         bulletPrefabClone = Instantiate(bulletPrefab, firePoint3.position, Quaternion.identity);
-        bulletPrefabClone.GetComponent<Rigidbody2D>().AddForce(projectileDirection); Destroy(bulletPrefabClone, 5f);
+        bulletPrefabClone.GetComponent<Rigidbody2D>().AddForce(projectileDirection, ForceMode2D.Impulse);
         Destroy(bulletPrefabClone, 5f);
 
         bulletPrefabClone = Instantiate(bulletPrefab, firePoint4.position, Quaternion.identity);
-        bulletPrefabClone.GetComponent<Rigidbody2D>().AddForce(projectileDirection); Destroy(bulletPrefabClone, 5f);
+        bulletPrefabClone.GetComponent<Rigidbody2D>().AddForce(projectileDirection, ForceMode2D.Impulse);
         Destroy(bulletPrefabClone, 5f);
 
         bulletPrefabClone = Instantiate(bulletPrefab, firePoint5.position, Quaternion.identity);
-        bulletPrefabClone.GetComponent<Rigidbody2D>().AddForce(projectileDirection); Destroy(bulletPrefabClone, 5f);
+        bulletPrefabClone.GetComponent<Rigidbody2D>().AddForce(projectileDirection, ForceMode2D.Impulse);
         Destroy(bulletPrefabClone, 5f);
 
     }
