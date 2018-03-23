@@ -19,7 +19,7 @@ public class Boss1Controller : MonoBehaviour {
     Vector2 defeatedFinalPos;
 
     private bool defeated = false;
-    private bool intro = true;
+    public bool intro = true;
 
     // Prefabs
     public GameObject explosionPrefab;      // Drag and drop the prefabs into here through the Unity inspector
