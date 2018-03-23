@@ -8,6 +8,7 @@ TagManager:
   - EnemyProjectile
   - PlayerProjectile
   - Enemy
+  - Obstacle
   - Walls
   layers:
   - Default
@@ -20,8 +21,8 @@ TagManager:
   - 
   - Player
   - Obstacle
-  - 
-  - 
+  - lightbullet1test
+  - Enemy
   - 
   - 
   - 
