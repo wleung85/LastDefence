@@ -18,7 +18,6 @@ public class Enemy : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
- 
         alreadyShot = false;
         SetRandomTime();
         time = 0;
