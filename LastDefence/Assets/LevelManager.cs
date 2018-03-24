@@ -1,8 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class LevelManager : MonoBehaviour {
+public class LevelManager : MonoBehaviour
+{
     public int min;
     public int max;
     public float minY;
@@ -14,40 +16,40 @@ public class LevelManager : MonoBehaviour {
     public float time2;
     public float tankTime;
     public GameObject projectile1;
+    public bool loop = true;
 
     void Start()
     {
-        minY = 0f;
-        maxY = 3.5f;
-        time = 0;
-        time2 = 0;
-        tankTime = 0;
-        Physics2D.IgnoreCollision(enemy1.GetComponent<Collider2D>(), projectile1.GetComponent<Collider2D>());
+        StartCoroutine(Ready());
     }
 
     void Update()
     {
-        time += Time.deltaTime;
-        time2 += Time.deltaTime;
-        tankTime += Time.deltaTime;
+        if (!loop)
+        {
+            time += Time.deltaTime;
+            time2 += Time.deltaTime;
+            tankTime += Time.deltaTime;
 
-        if (time >= 1)
-        {
-            time = 0;
-            createEnemy1();
-        
+            if (time >= 1)
+            {
+                time = 0;
+                createEnemy1();
+
+            }
+
+            if (time2 >= 2.5)
+            {
+                time2 = 0;
+                createEnemy2();
+            }
+            if (tankTime >= 10)
+            {
+                tankTime = 0;
+                createEnemy3();
+            }
         }
 
-        if (time2 >= 2.5)
-        {
-            time2 = 0;
-            createEnemy2();
-        }
-        if (tankTime >= 10)
-        {
-            tankTime = 0;
-            createEnemy3(); 
-        }
     }
 
     public void createEnemy1()
@@ -63,5 +65,28 @@ public class LevelManager : MonoBehaviour {
     public void createEnemy3()
     {
         Instantiate(enemy3, new Vector3(7.8f, -2.65f, 0f), Quaternion.identity);
+    }
+
+    IEnumerator Ready()
+    {
+        Text dot = GameObject.Find("Dots").GetComponent<Text>();
+        dot.text = ".";
+        yield return new WaitForSeconds(1);
+        dot.text = ".   .";
+        yield return new WaitForSeconds(1);
+        dot.text = ".   .   .";
+        yield return new WaitForSeconds(1);
+        GameObject.Find("Go").GetComponent<Image>().enabled = true;
+        yield return new WaitForSeconds(1);
+        GameObject.Find("Go").GetComponent<Image>().enabled = false;
+        GameObject.Find("Ready").GetComponent<Image>().enabled = false;
+        dot.text = "";
+        loop = false;
+        minY = 0f;
+        maxY = 3.5f;
+        time = 0;
+        time2 = 0;
+        tankTime = 0;
+        Physics2D.IgnoreCollision(enemy1.GetComponent<Collider2D>(), projectile1.GetComponent<Collider2D>());
     }
 }
