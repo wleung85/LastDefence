@@ -145,7 +145,10 @@ MonoBehaviour:
   minY: 0
   maxY: 0
   enemy1: {fileID: 1760171075276322, guid: f3a4dbc75fd2e824b85b959706cb3ff5, type: 2}
+  enemy2: {fileID: 1771049810357412, guid: 553faad32f23744d9b39a6732236e7e3, type: 2}
+  enemy3: {fileID: 1179378363604234, guid: 14780bc5a6ab04ed2a83bc383b753bdb, type: 2}
   time: 0
+  tankTime: 0
   projectile1: {fileID: 1881726146287040, guid: 277159defc707034395a6acd2722b1bd,
     type: 2}
 --- !u!4 &32887006
