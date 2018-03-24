@@ -8,6 +8,7 @@ public class LevelManager : MonoBehaviour {
     public float minY;
     public float maxY;
     public GameObject enemy1;
+    public GameObject enemy2;
     public float time;
     public GameObject projectile1;
 
@@ -28,7 +29,7 @@ public class LevelManager : MonoBehaviour {
                time = 0;
                createEnemy1();
                createEnemy1();
-               createEnemy1();
+               createEnemy2();
 
         }
     }
@@ -36,5 +37,10 @@ public class LevelManager : MonoBehaviour {
     public void createEnemy1()
     {
         Instantiate(enemy1, new Vector3(9.4f, Random.Range(minY, maxY), 0f), Quaternion.identity);
+    }
+
+    public void createEnemy2()
+    {
+        Instantiate(enemy2, new Vector3(9.4f, Random.Range(minY, maxY), 0f), Quaternion.identity);
     }
 }
