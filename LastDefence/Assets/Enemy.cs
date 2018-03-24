@@ -18,7 +18,7 @@ public class Enemy : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-        Destroy();
+ 
         alreadyShot = false;
         SetRandomTime();
         time = 0;
@@ -45,14 +45,9 @@ public class Enemy : MonoBehaviour {
         }
 	}
 
-    void Destroy ()
-    {
-        Destroy(gameObject, 9);
-    }
-
     void SetRandomTime()
     {
-        spawnTime = Random.Range(1f, 4f);
+        spawnTime = Random.Range(1f, 2.5f);
         Debug.Log(spawnTime);
     }
 }
