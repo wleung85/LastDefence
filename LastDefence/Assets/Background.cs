@@ -13,9 +13,9 @@ public class Background : MonoBehaviour {
 	} 
 
 	private void Update() { 
-		//renderer.material.mainTextureOffset = new Vector2(Time.time * speed, 0); 
-		float horizontal = Input.GetAxis ("Horizontal");
-		offset = offset + (horizontal * speed);
-		renderer.material.mainTextureOffset = new Vector2(offset, 0);
+		renderer.material.mainTextureOffset = new Vector2(Time.time * speed, 0); 
+		//float horizontal = Input.GetAxis ("Horizontal");
+		//offset = offset + (horizontal * speed);
+		//renderer.material.mainTextureOffset = new Vector2(offset, 0);
 	}﻿
 }

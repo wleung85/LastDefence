@@ -11,6 +11,7 @@ public class LevelManager : MonoBehaviour {
     public GameObject enemy2;
     public GameObject enemy3;
     public float time;
+    public float time2;
     public float tankTime;
     public GameObject projectile1;
 
@@ -19,6 +20,7 @@ public class LevelManager : MonoBehaviour {
         minY = 0f;
         maxY = 3.5f;
         time = 0;
+        time2 = 0;
         tankTime = 0;
         Physics2D.IgnoreCollision(enemy1.GetComponent<Collider2D>(), projectile1.GetComponent<Collider2D>());
     }
@@ -26,13 +28,19 @@ public class LevelManager : MonoBehaviour {
     void Update()
     {
         time += Time.deltaTime;
+        time2 += Time.deltaTime;
         tankTime += Time.deltaTime;
 
         if (time >= 1)
         {
             time = 0;
             createEnemy1();
-            createEnemy1();
+        
+        }
+
+        if (time2 >= 2.5)
+        {
+            time2 = 0;
             createEnemy2();
         }
         if (tankTime >= 10)
