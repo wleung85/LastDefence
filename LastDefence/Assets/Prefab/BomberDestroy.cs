@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlaneDestroy : MonoBehaviour {
+public class BomberDestroy : MonoBehaviour
+{
 
     public GameObject explosionPrefab;
     private GameObject explosionPrefabClone;
@@ -24,7 +25,7 @@ public class PlaneDestroy : MonoBehaviour {
             Destroy(gameObject, 3);
             explosionPrefabClone = Instantiate(explosionPrefab, collisionInfo.transform.position, Quaternion.identity);
             GameObject.Find("Canvas").GetComponent<upgradesDummy>().DummyIncreaseScore();
-            GMScript.planeHit++;
+            GMScript.bomberHit++;
             Destroy(explosionPrefabClone, 1f);
         }
 

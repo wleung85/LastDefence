@@ -93,6 +93,10 @@ public class LevelSelectManager : MonoBehaviour {
 			if (positionSelector == 0) {
 				SceneManager.LoadScene("Game");
 			}
+            if (positionSelector == 1)
+            {
+                SceneManager.LoadScene("Boss1");
+            }
 			else {
 				Debug.Log("Level closed");
 			}
