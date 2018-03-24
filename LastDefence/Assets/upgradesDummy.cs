@@ -147,11 +147,7 @@ public class upgradesDummy : MonoBehaviour {
 
     public void ChangeValue(Text obj, int newValue)
     {
-        if (newValue == 0){
-            obj.text = "";
-        } else {
-            obj.text = "Score: ".Insert(7, newValue.ToString());
-        }
+         obj.text = "Score: ".Insert(7, newValue.ToString());
     }
 
     public void DummyIncreaseScore()

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class LevelSelectManager : MonoBehaviour {
 	
@@ -19,12 +20,19 @@ public class LevelSelectManager : MonoBehaviour {
 	public float moveSpeed;
 	
 	private bool isPressed;
+
+    public Image arrow;
+    public Image space;
+    public bool blink = true;
 	
 	//PlayerPrefs.SetInt(level1Tag, 1);
 
 	// Use this for initialization
 	void Start () {
-		for(int i = 0; i < levelTags.Length; i++){
+        arrow = GameObject.Find("Arrows").GetComponent<Image>();
+        space = GameObject.Find("Spacebar").GetComponent<Image>();
+        InvokeRepeating("Blink", 0, 1);
+        for (int i = 0; i < levelTags.Length; i++){
 			if(PlayerPrefs.GetInt(levelTags[i]) == null){
 				levelUnlocked[i] = false;
 			}
@@ -46,9 +54,7 @@ public class LevelSelectManager : MonoBehaviour {
 	
 	//Update is called once per frame
 	void Update () {
-		
-		
-		if(!isPressed)
+        if (!isPressed)
 		{
 			if(Input.GetAxis("Horizontal")> .25f){
 				positionSelector += 1;
@@ -93,4 +99,20 @@ public class LevelSelectManager : MonoBehaviour {
 		}
 		
 	}
+
+
+
+    public void Blink() {
+        if (blink){
+            space.enabled = false;
+            arrow.enabled = false;
+            blink = false;
+        } else  {
+            space.enabled = true;
+            arrow.enabled = true;
+            blink = true;
+        }
+
+    }
+
 }
