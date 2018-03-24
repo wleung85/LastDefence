@@ -22,6 +22,7 @@ public class Enemy : MonoBehaviour {
         alreadyShot = false;
         SetRandomTime();
         time = 0;
+        Destroy(gameObject, 4f);
     }
 	
 	// Update is called once per frame

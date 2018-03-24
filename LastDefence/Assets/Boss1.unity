@@ -148,6 +148,7 @@ MonoBehaviour:
   enemy2: {fileID: 0}
   enemy3: {fileID: 0}
   time: 0
+  time2: 0
   tankTime: 0
   projectile1: {fileID: 0}
 --- !u!4 &32887006

@@ -10,6 +10,9 @@ public class GameManager : MonoBehaviour {
     public int rateLevel = 1;
     public int healthLevel = 2;
     public int speedLevel = 3;
+    public int planeHit = 0;
+    public int tankHit = 0;
+    public int bomberHit = 0;
 
     void Awake () {
 		if (instance == null) 
