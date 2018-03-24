@@ -42,7 +42,12 @@ public class Enemy : MonoBehaviour {
 
         if (alreadyShot)
         {
-            fallingBomb.transform.Translate(Vector3.down * bombSpeed * Time.deltaTime);
+            if (fallingBomb == null) { }
+            else
+            {
+                fallingBomb.transform.Translate(Vector3.down * bombSpeed * Time.deltaTime);
+            }
+            
         }
 	}
 
