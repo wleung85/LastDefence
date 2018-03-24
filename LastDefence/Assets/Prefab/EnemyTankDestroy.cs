@@ -7,6 +7,14 @@ public class EnemyTankDestroy : MonoBehaviour
 
     public GameObject explosionPrefab;
     private GameObject explosionPrefabClone;
+    GameObject GM;
+    private GameManager GMScript;
+
+    private void Start()
+    {
+        GM = GameObject.Find("GameManager");        //GameObject.Find to get GameManager
+        GMScript = GM.GetComponent<GameManager>();	//GetComponent to access GameManager script inside object
+    }
 
     void OnCollisionEnter2D(Collision2D collisionInfo)
     {
@@ -16,7 +24,9 @@ public class EnemyTankDestroy : MonoBehaviour
             Destroy(gameObject, 3);
             explosionPrefabClone = Instantiate(explosionPrefab, collisionInfo.transform.position, Quaternion.identity);
             GameObject.Find("Canvas").GetComponent<upgradesDummy>().DummyIncreaseScore();
+            GMScript.tankHit++;
             Destroy(explosionPrefabClone, 1f);
         }
     }
 }
+
