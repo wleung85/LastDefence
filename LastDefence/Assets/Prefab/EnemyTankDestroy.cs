@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlaneDestroy : MonoBehaviour {
+public class EnemyTankDestroy : MonoBehaviour
+{
 
     public GameObject explosionPrefab;
     private GameObject explosionPrefabClone;
@@ -16,11 +17,6 @@ public class PlaneDestroy : MonoBehaviour {
             explosionPrefabClone = Instantiate(explosionPrefab, collisionInfo.transform.position, Quaternion.identity);
             GameObject.Find("Canvas").GetComponent<upgradesDummy>().DummyIncreaseScore();
             Destroy(explosionPrefabClone, 1f);
-        }
-
-        if (collisionInfo.collider.tag.Equals("Walls"))
-        {
-            Destroy(gameObject);
         }
     }
 }
