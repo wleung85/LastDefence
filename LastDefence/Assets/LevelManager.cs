@@ -16,11 +16,14 @@ public class LevelManager : MonoBehaviour
     public float time2;
     public float tankTime;
     public GameObject projectile1;
+    public GameObject projectile2;
+    public GameObject projectile3;
     public bool loop = true;
 
     void Start()
     {
         StartCoroutine(Ready());
+        AudioSource backgroundMusic = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -88,5 +91,23 @@ public class LevelManager : MonoBehaviour
         time2 = 0;
         tankTime = 0;
         Physics2D.IgnoreCollision(enemy1.GetComponent<Collider2D>(), projectile1.GetComponent<Collider2D>());
+        Physics2D.IgnoreCollision(enemy1.GetComponent<Collider2D>(), projectile2.GetComponent<Collider2D>());
+        Physics2D.IgnoreCollision(enemy1.GetComponent<Collider2D>(), projectile3.GetComponent<Collider2D>());
+        Physics2D.IgnoreCollision(enemy2.GetComponent<Collider2D>(), projectile1.GetComponent<Collider2D>());
+        Physics2D.IgnoreCollision(enemy2.GetComponent<Collider2D>(), projectile2.GetComponent<Collider2D>());
+        Physics2D.IgnoreCollision(enemy2.GetComponent<Collider2D>(), projectile3.GetComponent<Collider2D>());
+        Physics2D.IgnoreCollision(enemy3.GetComponent<Collider2D>(), projectile1.GetComponent<Collider2D>());
+        Physics2D.IgnoreCollision(enemy3.GetComponent<Collider2D>(), projectile2.GetComponent<Collider2D>());
+        Physics2D.IgnoreCollision(enemy3.GetComponent<Collider2D>(), projectile3.GetComponent<Collider2D>());
+        Physics2D.IgnoreCollision(projectile1.GetComponent<Collider2D>(), projectile1.GetComponent<Collider2D>());
+        Physics2D.IgnoreCollision(projectile1.GetComponent<Collider2D>(), projectile2.GetComponent<Collider2D>());
+        Physics2D.IgnoreCollision(projectile1.GetComponent<Collider2D>(), projectile3.GetComponent<Collider2D>());
+        Physics2D.IgnoreCollision(projectile2.GetComponent<Collider2D>(), projectile1.GetComponent<Collider2D>());
+        Physics2D.IgnoreCollision(projectile2.GetComponent<Collider2D>(), projectile2.GetComponent<Collider2D>());
+        Physics2D.IgnoreCollision(projectile2.GetComponent<Collider2D>(), projectile3.GetComponent<Collider2D>());
+        Physics2D.IgnoreCollision(projectile3.GetComponent<Collider2D>(), projectile1.GetComponent<Collider2D>());
+        Physics2D.IgnoreCollision(projectile3.GetComponent<Collider2D>(), projectile2.GetComponent<Collider2D>());
+        Physics2D.IgnoreCollision(projectile3.GetComponent<Collider2D>(), projectile3.GetComponent<Collider2D>());
+
     }
 }

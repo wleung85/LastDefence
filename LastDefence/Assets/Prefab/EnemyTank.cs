@@ -25,17 +25,29 @@ public class EnemyTank : MonoBehaviour {
     {
 
         time += Time.deltaTime;
-
-        if (!alreadyShot && time >= 3)
+        if (gameObject == null)
         {
-            time = 0;
-            bullet = Instantiate(bomb, spawnPoint.position, spawnPoint.rotation);
-            alreadyShot = true;
+
         }
 
-        if (alreadyShot)
+        else
         {
-            bullet.transform.Translate(Vector3.left * bombSpeed * Time.deltaTime);
+            if (!alreadyShot && time >= 3)
+            {
+                time = 0;
+                bullet = Instantiate(bomb, spawnPoint.position, spawnPoint.rotation);
+                alreadyShot = true;
+            }
+
+            if (alreadyShot)
+            {
+                if (bullet == null) { }
+                else
+                {
+                    bullet.transform.Translate(Vector3.left * bombSpeed * Time.deltaTime);
+                }
+
+            }
         }
     }
 

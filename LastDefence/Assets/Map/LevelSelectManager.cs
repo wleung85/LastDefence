@@ -56,15 +56,16 @@ public class LevelSelectManager : MonoBehaviour {
 	void Update () {
         if (!isPressed)
 		{
-			if(Input.GetAxis("Horizontal")> .25f){
+            AudioSource explosionSound = GetComponent<AudioSource>();
+            if (Input.GetAxis("Horizontal")> .25f){
 				positionSelector += 1;
 				isPressed = true;
-			}
+            }
 			
 			else if(Input.GetAxis("Horizontal") < -.25f){
 				positionSelector -= 1;
 				isPressed = true;
-			}
+            }
 			
 			if(positionSelector >= levelTags.Length){
 				positionSelector = levelTags.Length - 1;

@@ -29,25 +29,28 @@ public class Enemy : MonoBehaviour {
 	void Update () 
     {
         transform.Translate(Vector3.left * speed * Time.deltaTime);
-
-        if (!alreadyShot)
+        if (gameObject == null) { }
+        else
         {
-            time += Time.deltaTime;
-            if (time >= spawnTime)
+            if (!alreadyShot)
             {
-                fallingBomb = Instantiate(bomb, spawnPoint.position, spawnPoint.rotation);
-                alreadyShot = true;
+                time += Time.deltaTime;
+                if (time >= spawnTime)
+                {
+                    fallingBomb = Instantiate(bomb, spawnPoint.position, spawnPoint.rotation);
+                    alreadyShot = true;
+                }
             }
-        }
 
-        if (alreadyShot)
-        {
-            if (fallingBomb == null) { }
-            else
+            if (alreadyShot)
             {
-                fallingBomb.transform.Translate(Vector3.down * bombSpeed * Time.deltaTime);
+                if (fallingBomb == null) { }
+                else
+                {
+                    fallingBomb.transform.Translate(Vector3.down * bombSpeed * Time.deltaTime);
+                }
+
             }
-            
         }
 	}
 
