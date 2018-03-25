@@ -138,14 +138,21 @@ public class upgradesDummy : MonoBehaviour {
         if (lose){
             Debug.Log("GAME OVER");
             GMScript.win = false;
-            SceneManager.LoadScene("RoundResults");
+            if (!GMScript.bossLevel) {
+                SceneManager.LoadScene("RoundResults");
+            } else {
+                SceneManager.LoadScene("LevelMap");
+            }
         }
 
-        if (complete)
-        {
+        if (complete) {
             Debug.Log("Level Complete");
             GMScript.win = true;
-            SceneManager.LoadScene("RoundResults");
+            if (!GMScript.bossLevel) {
+                SceneManager.LoadScene("RoundResults");
+            } else  {
+                SceneManager.LoadScene("LevelMap");
+            }
         }
     }
 

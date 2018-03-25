@@ -26,6 +26,7 @@ public class LevelManager : MonoBehaviour
     {
         GM = GameObject.Find("GameManager");        //GameObject.Find to get GameManager
         GMScript = GM.GetComponent<GameManager>();  //GetComponent to access GameManager script inside object
+        GMScript.bossLevel = false;
         GMScript.planeHit = 0;
         GMScript.bomberHit = 0;
         GMScript.tankHit = 0;

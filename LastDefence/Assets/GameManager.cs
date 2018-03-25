@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour {
     public int tankHit = 0;
     public int bomberHit = 0;
     public bool win = true;
+    public bool bossLevel = true;
 
     void Awake () {
 		if (instance == null) 
