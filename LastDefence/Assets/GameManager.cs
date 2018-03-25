@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour {
     public int planeHit = 0;
     public int tankHit = 0;
     public int bomberHit = 0;
+    public bool win = true;
 
     void Awake () {
 		if (instance == null) 

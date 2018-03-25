@@ -19,9 +19,16 @@ public class LevelManager : MonoBehaviour
     public GameObject projectile2;
     public GameObject projectile3;
     public bool loop = true;
+    GameObject GM;
+    private GameManager GMScript;
 
     void Start()
     {
+        GM = GameObject.Find("GameManager");        //GameObject.Find to get GameManager
+        GMScript = GM.GetComponent<GameManager>();  //GetComponent to access GameManager script inside object
+        GMScript.planeHit = 0;
+        GMScript.bomberHit = 0;
+        GMScript.tankHit = 0;
         StartCoroutine(Ready());
         AudioSource backgroundMusic = GetComponent<AudioSource>();
     }
