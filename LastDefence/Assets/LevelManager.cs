@@ -17,58 +17,57 @@ public class LevelManager : MonoBehaviour
     public float tankTime;
     public GameObject projectile1;
     public bool loop = true;
+    GameObject GM;
+    private GameManager GMScript;
 
     void Start()
     {
+        GM = GameObject.Find("GameManager");        //GameObject.Find to get GameManager
+        GMScript = GM.GetComponent<GameManager>();  //GetComponent to access GameManager script inside object
+        GMScript.planeHit = 0;
+        GMScript.bomberHit = 0;
+        GMScript.tankHit = 0;
         StartCoroutine(Ready());
     }
 
     void Update()
     {
-        if (!loop)
-        {
+        if (!loop) {
             time += Time.deltaTime;
             time2 += Time.deltaTime;
             tankTime += Time.deltaTime;
 
-            if (time >= 1)
-            {
+            if (time >= 1) {
                 time = 0;
                 createEnemy1();
 
             }
 
-            if (time2 >= 2.5)
-            {
+            if (time2 >= 2.5) {
                 time2 = 0;
                 createEnemy2();
             }
-            if (tankTime >= 10)
-            {
+
+            if (tankTime >= 10) {
                 tankTime = 0;
                 createEnemy3();
             }
         }
-
     }
 
-    public void createEnemy1()
-    {
+    public void createEnemy1(){
         Instantiate(enemy1, new Vector3(9.4f, Random.Range(minY, maxY), 0f), Quaternion.identity);
     }
 
-    public void createEnemy2()
-    {
+    public void createEnemy2() {
         Instantiate(enemy2, new Vector3(9.4f, Random.Range(minY, maxY), 0f), Quaternion.identity);
     }
 
-    public void createEnemy3()
-    {
+    public void createEnemy3() {
         Instantiate(enemy3, new Vector3(7.8f, -2.65f, 0f), Quaternion.identity);
     }
 
-    IEnumerator Ready()
-    {
+    IEnumerator Ready() {
         Text dot = GameObject.Find("Dots").GetComponent<Text>();
         dot.text = ".";
         yield return new WaitForSeconds(1);

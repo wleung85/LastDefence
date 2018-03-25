@@ -12,7 +12,8 @@ public class upgradesDummy : MonoBehaviour {
 	private GameManager GMScript;
     public int health = 3;
     public bool halfLife = false;
-
+    public bool lose = false;
+    public bool stop = false;
     public Image L1;
     public Image L2;
     public Image L3;
@@ -71,66 +72,80 @@ public class upgradesDummy : MonoBehaviour {
 
     public void hitHealth() {
         Image img;
-        if (!halfLife) {
-            if (health == 1) {
-                img = L1;
-            } else {
-                if (health == 2) {
-                    img = L2;
-                } else{
-                    if (health == 3) {
-                        img = L3;
-                    } else {
-                        if (health == 4) {
-                            img = L4;
-                        } else {
-                            if (health == 5) {
-                                img = L5;
-                            } else {
-                                img = L6;
-                            }
-                        }
-                    }
-                }
-            }
-            halfLife = true;
-        } else {
-            if (health == 1) {
-                img = H1;
-            } else {
-                if (health == 2){
-                    img = H2;
+
+        if (!stop)  {
+            if (!halfLife)  {
+                if (health == 1) {
+                    img = L1;
                 } else {
-                    if (health == 3) {
-                        img = H3;
-                    } else  {
-                        if (health == 4) {
-                            img = H4;
-                        } else {
-                            if (health == 5)  {
-                                img = H5;
-                            } else{
-                                img = H6;
+                    if (health == 2) {
+                        img = L2;
+                    } else {
+                        if (health == 3) {
+                            img = L3;
+                        } else  {
+                            if (health == 4) {
+                                img = L4;
+                            }else  {
+                                if (health == 5)  {
+                                    img = L5;
+                                }  else  {
+                                    img = L6;
+                                }
                             }
                         }
                     }
                 }
+                halfLife = true;
+            } else {
+                if (health == 1) {
+                    img = H1;
+                }  else {
+                    if (health == 2)  {
+                        img = H2;
+                    } else  {
+                        if (health == 3) {
+                            img = H3;
+                        }  else {
+                            if (health == 4)
+                            {
+                                img = H4;
+                            }  else{
+                                if (health == 5) {
+                                    img = H5;
+                                } else {
+                                    img = H6;
+                                }
+                            }
+                        }
+                    }
+                }
+                halfLife = false;
+                health--;
             }
-            halfLife = false;
-            health--;
+            StartCoroutine(BlinkHealth(img));
+            if (health == 0)  {
+                stop = true;
+                gameOver();
+            }
         }
-        StartCoroutine(BlinkHealth(img));
-        if (health == 0){
-            gameOver();
+        
+    }
+
+    public void Update()
+    {
+        if (lose){
+            Debug.Log("GAME OVER");
+            GMScript.win = false;
+            SceneManager.LoadScene("RoundResults");
         }
     }
 
     public void gameOver(){
-        Debug.Log("GAME OVER");
+        StartCoroutine(BlinkLose(GameObject.Find("GameOver").GetComponent<Image>()));
     }
 
-    IEnumerator BlinkHealth(Image img)
-    {
+    IEnumerator BlinkHealth(Image img){
         AudioSource a = GameObject.Find("Damage").GetComponent<AudioSource>();
         a.Play();
         img.enabled = false;
@@ -144,16 +159,26 @@ public class upgradesDummy : MonoBehaviour {
         img.enabled = false;
     }
 
+    IEnumerator BlinkLose(Image img){
+        for (int i = 0; i < 3; i++)
+        {
+            img.enabled = true;
+            yield return new WaitForSeconds(1);
+            img.enabled = false;
+            yield return new WaitForSeconds(1);
+        }
+        lose = true;
+    }
 
-    public void ChangeValue(Text obj, int newValue)
-    {
+
+    public void ChangeValue(Text obj, int newValue){
          obj.text = "Score: ".Insert(7, newValue.ToString());
     }
 
-    public void DummyIncreaseScore()
-    {
-        Debug.Log("hit plane");
-        GMScript.score = GMScript.score + 200;
-        ChangeValue(score, GMScript.score);
+    public void DummyIncreaseScore() {
+        if (!stop) {
+            GMScript.score = GMScript.score + 200;
+            ChangeValue(score, GMScript.score);
+        }
     }
 }
