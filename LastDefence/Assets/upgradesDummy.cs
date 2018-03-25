@@ -14,6 +14,7 @@ public class upgradesDummy : MonoBehaviour {
     public bool halfLife = false;
     public bool lose = false;
     public bool stop = false;
+    public bool complete = false;
     public Image L1;
     public Image L2;
     public Image L3;
@@ -139,8 +140,19 @@ public class upgradesDummy : MonoBehaviour {
             GMScript.win = false;
             SceneManager.LoadScene("RoundResults");
         }
+
+        if (complete)
+        {
+            Debug.Log("Level Complete");
+            GMScript.win = true;
+            SceneManager.LoadScene("RoundResults");
+        }
     }
 
+    public void WinLevel(){
+        stop = true;
+        StartCoroutine(BlinkWin(GameObject.Find("LevelComplete").GetComponent<Image>()));
+    }
     public void gameOver(){
         StartCoroutine(BlinkLose(GameObject.Find("GameOver").GetComponent<Image>()));
     }
@@ -168,6 +180,18 @@ public class upgradesDummy : MonoBehaviour {
             yield return new WaitForSeconds(1);
         }
         lose = true;
+    }
+
+    IEnumerator BlinkWin(Image img)
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            img.enabled = true;
+            yield return new WaitForSeconds(1);
+            img.enabled = false;
+            yield return new WaitForSeconds(1);
+        }
+        complete = true;
     }
 
 
