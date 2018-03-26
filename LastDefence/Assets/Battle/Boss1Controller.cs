@@ -29,8 +29,11 @@ public class Boss1Controller : MonoBehaviour {
     // Gameobjects
     GameObject bossHealth;
 
-	// Use this for initialization
-	void Start () {
+    GameObject GM;
+    private GameManager GMScript;
+
+    // Use this for initialization
+    void Start () {
         transform.position = new Vector3(0f, 7.11f, 0f);
         forward = true;
         health = maxHealth;
@@ -40,6 +43,10 @@ public class Boss1Controller : MonoBehaviour {
         bossHealth = GameObject.Find("BossHealth");
         bossHealth.SetActive(false);
         GameObject.Find("Tank").GetComponent<Bullet_Spawn>().enabled = false;
+
+        GM = GameObject.Find("GameManager");        //GameObject.Find to get GameManager
+        GMScript = GM.GetComponent<GameManager>();  //GetComponent to access GameManager script inside object
+        GMScript.bossLevel = true;
     }
 	
 	// Update is called once per frame
@@ -60,7 +67,7 @@ public class Boss1Controller : MonoBehaviour {
 
     void OnCollisionEnter2D (Collision2D collisionInfo)
     {
-        if (collisionInfo.collider.tag.Equals("PlayerProjectile"))
+        if (collisionInfo.collider.tag.Equals("PlayerProjectile") && !GameObject.Find("Canvas").GetComponent<upgradesDummy>().stop )
         {
             DecreaseHealth();
             // Choosing randomly which of the two explosions to use
@@ -84,6 +91,7 @@ public class Boss1Controller : MonoBehaviour {
         if (health == 0)
         {
             Defeated();
+            GameObject.Find("Canvas").GetComponent<upgradesDummy>().WinLevel();
         }
     }
 
@@ -109,9 +117,12 @@ public class Boss1Controller : MonoBehaviour {
 
     private void Defeated()
     {
-        GetComponent<PolygonCollider2D>().enabled = false;
-        defeated = true;
-        defeatedFinalPos = new Vector2(transform.position.x, -3.77f);
+        if (!GameObject.Find("Canvas").GetComponent<upgradesDummy>().stop)
+        {
+            GetComponent<PolygonCollider2D>().enabled = false;
+            defeated = true;
+            defeatedFinalPos = new Vector2(transform.position.x, -3.77f);
+        }
     }
 
     private void DefeatedMove()
