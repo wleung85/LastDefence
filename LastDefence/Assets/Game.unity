@@ -1863,7 +1863,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce3dbc67d7067114c890ee778a3f1558, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  score: 0
+  score: 5000
   sizeLevel: 0
   rateLevel: 0
   healthLevel: 0
@@ -1872,6 +1872,7 @@ MonoBehaviour:
   tankHit: 0
   bomberHit: 0
   win: 1
+  bossLevel: 1
 --- !u!4 &1418401527
 Transform:
   m_ObjectHideFlags: 0

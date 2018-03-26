@@ -144,11 +144,8 @@ public class Shop : MonoBehaviour
     }
 
     public void ChangeValue(Text obj, int newValue){
-        if (newValue == 0){
-            obj.text = "";
-        } else {
             obj.text = "$".Insert(1, newValue.ToString());
-        }
+
     }
 
     public void BuySize(){
