@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 58881431912476478}
   - component: {fileID: 50909842531502874}
   - component: {fileID: 114052223339068104}
+  - component: {fileID: 114260846149179892}
   m_Layer: 10
   m_Name: lightbullet1
   m_TagString: EnemyProjectile
@@ -91,6 +92,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosionPrefab: {fileID: 1014209508962032, guid: bc207726c92a16c4da125959fcbb524c,
     type: 2}
+--- !u!114 &114260846149179892
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1162964779436556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1552f903d0bc89a48801b8d88e35a206, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212100224478624410
 SpriteRenderer:
   m_ObjectHideFlags: 1
