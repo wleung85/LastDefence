@@ -23,9 +23,10 @@ GameObject:
   - component: {fileID: 114070397038534918}
   - component: {fileID: 58057391669900574}
   - component: {fileID: 50787082480153144}
-  m_Layer: 0
+  - component: {fileID: 114772819973370458}
+  m_Layer: 10
   m_Name: darkbullet
-  m_TagString: Untagged
+  m_TagString: EnemyProjectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -79,6 +80,17 @@ CircleCollider2D:
   serializedVersion: 2
   m_Radius: 0.07
 --- !u!114 &114070397038534918
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1142990584233504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1552f903d0bc89a48801b8d88e35a206, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114772819973370458
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}

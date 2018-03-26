@@ -21,9 +21,9 @@ GameObject:
   - component: {fileID: 4332980794713084}
   - component: {fileID: 212908162403608294}
   - component: {fileID: 61001087564403002}
-  - component: {fileID: 114636499815309386}
   - component: {fileID: 114570690185742518}
   - component: {fileID: 50926789081932430}
+  - component: {fileID: 114270535437318682}
   m_Layer: 11
   m_Name: plane2
   m_TagString: Enemy
@@ -89,6 +89,23 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.05, y: 0.55}
   m_EdgeRadius: 0
+--- !u!114 &114270535437318682
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1771049810357412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 728f0ca6a249044bead0b2c4507753ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 1142990584233504, guid: e47a6051b302f43e9bf76b5568c43ba0,
+    type: 2}
+  speed: 5
+  bulletForce: 0
+  bulletFireRate: 0
+  firePoint1: {fileID: 4332980794713084}
 --- !u!114 &114570690185742518
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -102,19 +119,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosionPrefab: {fileID: 1014209508962032, guid: bc207726c92a16c4da125959fcbb524c,
     type: 2}
---- !u!114 &114636499815309386
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1771049810357412}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f880710221415d4996ef6edba4922c3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bomb: {fileID: 1142990584233504, guid: e47a6051b302f43e9bf76b5568c43ba0, type: 2}
-  spawnPoint: {fileID: 4332980794713084}
 --- !u!212 &212908162403608294
 SpriteRenderer:
   m_ObjectHideFlags: 1
