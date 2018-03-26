@@ -29,6 +29,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Boss1.unity
     guid: 4aba1adfd6c229f4c80f589f30dfaccb
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/RoundResults.unity
-    guid: ed17d43835b5ea3459c41b1c03887b75
+    guid: 470102dbd1f5c11428a37893716fa98c
