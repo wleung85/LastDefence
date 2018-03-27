@@ -9,7 +9,7 @@ public class Boss1Shooting : MonoBehaviour {
     public GameObject bombPrefab;
     private GameObject bombPrefabClone;
     private bool intro = true;
-    private bool canShoot = true;
+    private bool defeated = false;
 
     public float bulletForce = 1;
     public float bulletFireRate = 2f;
@@ -37,21 +37,21 @@ public class Boss1Shooting : MonoBehaviour {
         {
             intro = GetComponent<Boss1Controller>().intro;
         }	
+        else if (defeated) {
+            // Don't shoot when defeated
+        }
         else
         {
            if (Time.time > timeToFire)
             {
                 timeToFire = Time.time + bulletFireRate;
                 ShootBullets();
-                Debug.Log("Time: " + Time.time);
-                Debug.Log("timeToFire: " + timeToFire);
             }
         }
 	}
 
     void ShootBullets()
     {
-        Debug.Log("ShootBullets called");
         Vector2 projectileDirection = (new Vector2((GameObject.Find("Tank").transform.position.x - 0.59f)/3f, GameObject.Find("Tank").transform.position.y)) - (Vector2)firePoint5.position;
         projectileDirection = projectileDirection*bulletForce;
 

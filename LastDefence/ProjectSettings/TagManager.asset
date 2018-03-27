@@ -24,8 +24,8 @@ TagManager:
   - lightbullet1test
   - Enemy
   - Bomb
-  - 
-  - 
+  - EnProjNoDestroy
+  - PlayerProjectile
   - 
   - 
   - 
