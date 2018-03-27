@@ -18,7 +18,7 @@ public class Boss1Controller : MonoBehaviour {
     int defeatedMoveFrames = 0;
     Vector2 defeatedFinalPos;
 
-    private bool defeated = false;
+    public bool defeated = false;
     public bool intro = true;
 
     // Prefabs
