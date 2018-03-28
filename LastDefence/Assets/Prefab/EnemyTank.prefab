@@ -112,6 +112,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bomb: {fileID: 1162964779436556, guid: 083a57366cd4a7f448d1d8c15c0ad793, type: 2}
   spawnPoint: {fileID: 4045996576090440}
+  bulletforce: -0.05
 --- !u!212 &212708528662610430
 SpriteRenderer:
   m_ObjectHideFlags: 1

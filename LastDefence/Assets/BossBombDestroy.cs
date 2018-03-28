@@ -50,10 +50,12 @@ public class BossBombDestroy : MonoBehaviour
         else if (collisionInfo.tag.Equals("PlayerProjectile"))
         {
             health--;
+
             Destroy(collisionInfo.gameObject);  // Destroy player projectile on hit
             if (health <= 0)
             {
                 Destroy(gameObject);
+                GameObject.Find("Canvas").GetComponent<upgradesDummy>().DummyIncreaseScore();
             }
             explosionPrefabClone = Instantiate(explosionPrefab, gameObject.transform.position, Quaternion.identity);
             Destroy(explosionPrefabClone, 1f);

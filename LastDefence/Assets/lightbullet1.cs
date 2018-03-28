@@ -11,13 +11,13 @@ public class lightbullet1 : MonoBehaviour {
     {
     }
 
-    private void OnCollisionEnter2D(Collision2D collisionInfo)
+    private void OnTriggerEnter2D(Collider2D collisionInfo)
     {
-        if (collisionInfo.collider.tag.Equals("Obstacle"))
+        if (collisionInfo.tag.Equals("Obstacle"))
         {
             Destroy(gameObject);
         }
-        else if (collisionInfo.collider.tag.Equals("Player"))
+        else if (collisionInfo.tag.Equals("Player"))
         {
             explosionPrefabClone = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
             Destroy(explosionPrefabClone, 1.7f);

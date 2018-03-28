@@ -71,6 +71,7 @@ public class Boss1Controller : MonoBehaviour {
         if (collisionInfo.collider.tag.Equals("PlayerProjectile") && !GameObject.Find("Canvas").GetComponent<upgradesDummy>().stop )
         {
             DecreaseHealth();
+            GameObject.Find("Canvas").GetComponent<upgradesDummy>().DummyIncreaseScore();
             // Choosing randomly which of the two explosions to use
             if (Random.Range(0f, 1f) > 0.5)
             {

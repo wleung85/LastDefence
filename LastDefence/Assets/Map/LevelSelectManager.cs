@@ -24,14 +24,22 @@ public class LevelSelectManager : MonoBehaviour {
     public Image arrow;
     public Image space;
     public bool blink = true;
-	
-	//PlayerPrefs.SetInt(level1Tag, 1);
+    GameObject GM;
+    private GameManager GMScript;
 
-	// Use this for initialization
-	void Start () {
+    //PlayerPrefs.SetInt(level1Tag, 1);
+
+    // Use this for initialization
+    void Start () {
+        GM = GameObject.Find("GameManager");        //GameObject.Find to get GameManager
+        GMScript = GM.GetComponent<GameManager>();
         arrow = GameObject.Find("Arrows").GetComponent<Image>();
         space = GameObject.Find("Spacebar").GetComponent<Image>();
         InvokeRepeating("Blink", 0, 1);
+        if(GMScript.level1Beat == true)
+        {
+            GameObject.Find("level2").GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0f);
+        }
         for (int i = 0; i < levelTags.Length; i++){
 			if(PlayerPrefs.GetInt(levelTags[i]) == null){
 				levelUnlocked[i] = false;
@@ -60,16 +68,26 @@ public class LevelSelectManager : MonoBehaviour {
             if (Input.GetAxis("Horizontal")> .25f){
 				positionSelector += 1;
 				isPressed = true;
+                if (positionSelector == 1 && GMScript.level1Beat == false)
+                {
+                    positionSelector +=1;
+                }
             }
 			
 			else if(Input.GetAxis("Horizontal") < -.25f){
 				positionSelector -= 1;
 				isPressed = true;
+                if(positionSelector == 1 && GMScript.level1Beat == false)
+                {
+                    positionSelector -= 1;
+                }
             }
 			
-			if(positionSelector >= levelTags.Length){
-				positionSelector = levelTags.Length - 1;
+			if(positionSelector >= 2){
+				positionSelector =  2;
 			}
+
+            
 			
 			
 			if(positionSelector < 0){
@@ -94,7 +112,7 @@ public class LevelSelectManager : MonoBehaviour {
 			if (positionSelector == 0) {
 				SceneManager.LoadScene("Game");
 			}
-            if (positionSelector == 1)
+            if (positionSelector == 1 && GMScript.level1Beat == true)
             {
                 SceneManager.LoadScene("Boss1");
             }

@@ -221,7 +221,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce3dbc67d7067114c890ee778a3f1558, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  score: 35000
+  score: 0
+  sizeLevel: 0
+  rateLevel: 0
+  healthLevel: 0
+  speedLevel: 0
+  planeHit: 0
+  tankHit: 0
+  bomberHit: 0
+  win: 1
+  bossLevel: 1
+  level1Beat: 0
 --- !u!4 &304584022
 Transform:
   m_ObjectHideFlags: 0

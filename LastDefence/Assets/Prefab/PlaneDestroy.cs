@@ -13,6 +13,7 @@ public class PlaneDestroy : MonoBehaviour {
     {
         GM = GameObject.Find("GameManager");        //GameObject.Find to get GameManager
         GMScript = GM.GetComponent<GameManager>();	//GetComponent to access GameManager script inside object
+        Destroy(gameObject, 7f);
     }
 
 
@@ -20,8 +21,8 @@ public class PlaneDestroy : MonoBehaviour {
     {
         if (collisionInfo.collider.tag.Equals("PlayerProjectile"))
         {
-            gameObject.transform.localScale = new Vector3(0, 0, 0);
-            Destroy(gameObject, 3);
+            //gameObject.transform.localScale = new Vector3(0, 0, 0);
+            Destroy(gameObject);
             explosionPrefabClone = Instantiate(explosionPrefab, collisionInfo.transform.position, Quaternion.identity);
             GameObject.Find("Canvas").GetComponent<upgradesDummy>().DummyIncreaseScore();
             GMScript.planeHit++;

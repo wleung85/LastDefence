@@ -5,16 +5,17 @@ using UnityEngine;
 public class GameManager : MonoBehaviour {
 
 	public static GameManager instance = null;
-	public int score = 35000;
+	public int score = 0;
     public int sizeLevel = 0;
-    public int rateLevel = 1;
-    public int healthLevel = 2;
-    public int speedLevel = 3;
+    public int rateLevel = 0;
+    public int healthLevel = 0;
+    public int speedLevel = 0;
     public int planeHit = 0;
     public int tankHit = 0;
     public int bomberHit = 0;
     public bool win = true;
     public bool bossLevel = true;
+    public bool level1Beat = false;
 
     void Awake () {
 		if (instance == null) 

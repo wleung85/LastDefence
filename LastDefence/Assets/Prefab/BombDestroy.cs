@@ -7,27 +7,36 @@ public class BombDestroy : MonoBehaviour
 
     public GameObject explosionPrefab;
     private GameObject explosionPrefabClone;
+    public AudioClip explosionSound;
 
-    void OnCollisionEnter2D(Collision2D collisionInfo)
+    void Start()
     {
-        if (collisionInfo.collider.tag.Equals("Player"))
+        GetComponent<AudioSource>().playOnAwake = false;
+        GetComponent<AudioSource>().clip = explosionSound;
+    }
+
+
+    void OnTriggerEnter2D(Collider2D collisionInfo)
+    {   
+        if (collisionInfo.tag.Equals("Player"))
         {
             Destroy(gameObject);
-            AudioSource explosionSound = GetComponent<AudioSource>();
+            GetComponent<AudioSource>().Play();
             explosionPrefabClone = Instantiate(explosionPrefab, gameObject.transform.position, Quaternion.identity);
             Destroy(explosionPrefabClone, 1f);
         }
-        else if (collisionInfo.collider.tag.Equals("PlayerProjectile"))
+        else if (collisionInfo.tag.Equals("PlayerProjectile"))
         {
             Destroy(gameObject);
-            AudioSource explosionSound = GetComponent<AudioSource>();
+            Destroy(collisionInfo.gameObject);
+            GetComponent<AudioSource>().Play();
             explosionPrefabClone = Instantiate(explosionPrefab, gameObject.transform.position, Quaternion.identity);
             Destroy(explosionPrefabClone, 1f);
         }
-        else if (collisionInfo.collider.tag.Equals("Walls"))
+        else if (collisionInfo.tag.Equals("Walls"))
         {
             Destroy(gameObject);
-            AudioSource explosionSound = GetComponent<AudioSource>();
+            GetComponent<AudioSource>().Play();
             explosionPrefabClone = Instantiate(explosionPrefab, gameObject.transform.position, Quaternion.identity);
             Destroy(explosionPrefabClone, 1f);
         }

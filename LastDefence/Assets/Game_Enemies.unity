@@ -148,9 +148,13 @@ MonoBehaviour:
   enemy2: {fileID: 1771049810357412, guid: 553faad32f23744d9b39a6732236e7e3, type: 2}
   enemy3: {fileID: 1179378363604234, guid: 14780bc5a6ab04ed2a83bc383b753bdb, type: 2}
   time: 0
+  time2: 0
   tankTime: 0
   projectile1: {fileID: 1881726146287040, guid: 277159defc707034395a6acd2722b1bd,
     type: 2}
+  projectile2: {fileID: 0}
+  projectile3: {fileID: 0}
+  loop: 1
 --- !u!4 &32887006
 Transform:
   m_ObjectHideFlags: 0
@@ -1452,7 +1456,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1418401526
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1469,6 +1473,12 @@ MonoBehaviour:
   rateLevel: 0
   healthLevel: 0
   speedLevel: 0
+  planeHit: 0
+  tankHit: 0
+  bomberHit: 0
+  win: 1
+  bossLevel: 1
+  level1Beat: 1
 --- !u!4 &1418401527
 Transform:
   m_ObjectHideFlags: 0
@@ -1868,6 +1878,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57108e2ec7fa3c64084a295c8ae56c65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bodyAnimator: {fileID: 0}
+  armAnimator: {fileID: 0}
+  invulnerableTime: 3
 --- !u!1 &1766712676
 GameObject:
   m_ObjectHideFlags: 0
@@ -2202,6 +2215,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 3
   halfLife: 0
+  lose: 0
+  stop: 0
+  complete: 0
   L1: {fileID: 0}
   L2: {fileID: 0}
   L3: {fileID: 0}

@@ -179,6 +179,8 @@ public class upgradesDummy : MonoBehaviour {
     }
 
     IEnumerator BlinkLose(Image img){
+        AudioSource a = GameObject.Find("Lose").GetComponent<AudioSource>();
+        a.Play();
         for (int i = 0; i < 3; i++)
         {
             img.enabled = true;
@@ -191,6 +193,8 @@ public class upgradesDummy : MonoBehaviour {
 
     IEnumerator BlinkWin(Image img)
     {
+        AudioSource a = GameObject.Find("Win").GetComponent<AudioSource>();
+        a.Play();
         for (int i = 0; i < 3; i++)
         {
             img.enabled = true;

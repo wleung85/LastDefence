@@ -22,6 +22,10 @@ public class LevelManager : MonoBehaviour
     GameObject GM;
     private GameManager GMScript;
 
+    public float TimeToFinish = 10f;
+    private float StartTime;
+    private bool levelCompleted = false;
+
     void Start()
     {
         GM = GameObject.Find("GameManager");        //GameObject.Find to get GameManager
@@ -32,11 +36,21 @@ public class LevelManager : MonoBehaviour
         GMScript.tankHit = 0;
         StartCoroutine(Ready());
         AudioSource backgroundMusic = GetComponent<AudioSource>();
+        StartTime = Time.time;
     }
 
     void Update()
     {
-        if (!loop)
+        if (Time.time - StartTime > TimeToFinish)
+        {
+            levelCompleted = true;
+        }
+        if (Time.time - StartTime > TimeToFinish + 5f)
+        {
+            GMScript.level1Beat = true;
+            GameObject.Find("Canvas").GetComponent<upgradesDummy>().WinLevel();
+        }
+        if (!loop && !levelCompleted)
         {
             time += Time.deltaTime;
             time2 += Time.deltaTime;

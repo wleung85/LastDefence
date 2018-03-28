@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 61685709446335372}
   - component: {fileID: 114868141665032818}
   - component: {fileID: 50952354923342370}
-  - component: {fileID: 82194288738217550}
+  - component: {fileID: 82784895202307334}
   m_Layer: 12
   m_Name: Bomb
   m_TagString: EnemyProjectile
@@ -73,7 +73,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -89,7 +89,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.19, y: 0.55}
   m_EdgeRadius: 0
---- !u!82 &82194288738217550
+--- !u!82 &82784895202307334
 AudioSource:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -156,7 +156,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -182,6 +182,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosionPrefab: {fileID: 1017280638767442, guid: 88ef2da5f6809a347932daaa824f8858,
     type: 2}
+  explosionSound: {fileID: 8300000, guid: 76f6b6070d90ef147ac52b4b0b802d67, type: 3}
 --- !u!212 &212721893573852308
 SpriteRenderer:
   m_ObjectHideFlags: 1

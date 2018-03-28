@@ -57,6 +57,5 @@ public class Enemy : MonoBehaviour {
     void SetRandomTime()
     {
         spawnTime = Random.Range(1f, 2.5f);
-        Debug.Log(spawnTime);
     }
 }

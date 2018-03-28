@@ -14,10 +14,14 @@ public class EnemyTank : MonoBehaviour {
     private float spawnTime;
     private float time;
 
+    public float bulletforce = -0.3f;
+    private Vector2 shootDirection;
+
     // Use this for initialization
     void Start()
     {
         time = 0;
+        shootDirection = new Vector2(bulletforce, 0f);
     }
     
     // Update is called once per frame
@@ -44,7 +48,7 @@ public class EnemyTank : MonoBehaviour {
                 if (bullet == null) { }
                 else
                 {
-                    bullet.transform.Translate(Vector3.left * bombSpeed * Time.deltaTime);
+                    bullet.GetComponent<Rigidbody2D>().AddForce(shootDirection, ForceMode2D.Impulse);
                 }
 
             }
