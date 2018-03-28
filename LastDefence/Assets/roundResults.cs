@@ -31,7 +31,15 @@ public class roundResults : MonoBehaviour {
 
     public void goToMap()
     {
-        SceneManager.LoadScene("Cinematic_cleared1");
+        if (GMScript.level1Beat)
+        {
+            SceneManager.LoadScene("Cinematic_cleared1");
+        } else
+        {
+            SceneManager.LoadScene("LevelMap");
+        }
+
+
     }
 
     public void ChangeValue(Text obj, int newValue)

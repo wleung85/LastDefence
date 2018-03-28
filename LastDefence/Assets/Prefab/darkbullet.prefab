@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 50787082480153144}
   - component: {fileID: 114114362930423124}
   - component: {fileID: 82398546357143294}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: darkbullet
   m_TagString: EnemyProjectile
   m_Icon: {fileID: -1577725955494882426, guid: 0000000000000000d000000000000000, type: 0}

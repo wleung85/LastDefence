@@ -136,7 +136,6 @@ public class upgradesDummy : MonoBehaviour {
     public void Update()
     {
         if (lose){
-            Debug.Log("GAME OVER");
             GMScript.win = false;
             if (!GMScript.bossLevel) {
                 SceneManager.LoadScene("RoundResults");
