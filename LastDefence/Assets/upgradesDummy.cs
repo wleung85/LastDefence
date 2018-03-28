@@ -150,8 +150,9 @@ public class upgradesDummy : MonoBehaviour {
             GMScript.win = true;
             if (!GMScript.bossLevel) {
                 SceneManager.LoadScene("RoundResults");
+
             } else  {
-                SceneManager.LoadScene("LevelMap");
+                SceneManager.LoadScene("Cinematic_endboss1");
             }
         }
     }

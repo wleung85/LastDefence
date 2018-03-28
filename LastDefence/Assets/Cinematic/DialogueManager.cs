@@ -27,6 +27,8 @@ public class DialogueManager : MonoBehaviour {
 	public Animator char1Animator;
 	public Animator char2Animator;
 	private Animator currCharAnimator;
+
+    public string nextScene;
 	
 	// Use this for initialization
 	void Start () {
@@ -130,7 +132,7 @@ public class DialogueManager : MonoBehaviour {
 
 	public void changeScene() {
 		if (cutsceneDone) {
-			SceneManager.LoadScene("LevelMap");
+			SceneManager.LoadScene(nextScene);
 		}
 	}
 }

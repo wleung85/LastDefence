@@ -240,7 +240,7 @@ MonoBehaviour:
   dialogues:
   - name: General Aisley
     sentences:
-    - <Main Character>! Congratulations on clearing through all those planes and bombers!
+    - Lt. Dan! Congratulations on clearing through all those planes and bombers!
     - You truly are a one man army. You've cleared the way to Arizona and Texas.
   - name: Lt. Dan
     sentences:
@@ -653,6 +653,7 @@ MonoBehaviour:
   dialogueBoxAnimator: {fileID: 1077309085}
   char1Animator: {fileID: 1199050190}
   char2Animator: {fileID: 1831062761}
+  nextScene: LevelMap
 --- !u!4 &1170727996
 Transform:
   m_ObjectHideFlags: 0

@@ -643,6 +643,7 @@ MonoBehaviour:
   dialogueBoxAnimator: {fileID: 1077309085}
   char1Animator: {fileID: 1199050190}
   char2Animator: {fileID: 1831062761}
+  nextScene: Boss1
 --- !u!4 &1170727996
 Transform:
   m_ObjectHideFlags: 0

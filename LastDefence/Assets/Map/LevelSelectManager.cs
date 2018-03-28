@@ -114,10 +114,9 @@ public class LevelSelectManager : MonoBehaviour {
 			}
             if (positionSelector == 1 && GMScript.level1Beat == true)
             {
-                SceneManager.LoadScene("Boss1");
+                SceneManager.LoadScene("Cinematic_enter_boss1");
             }
 			else {
-				Debug.Log("Level closed");
 			}
 		}
 		

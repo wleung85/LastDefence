@@ -31,7 +31,7 @@ public class roundResults : MonoBehaviour {
 
     public void goToMap()
     {
-        SceneManager.LoadScene("LevelMap");
+        SceneManager.LoadScene("Cinematic_cleared1");
     }
 
     public void ChangeValue(Text obj, int newValue)
