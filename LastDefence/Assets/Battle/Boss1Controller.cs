@@ -20,6 +20,7 @@ public class Boss1Controller : MonoBehaviour {
 
     public bool defeated = false;
     public bool intro = true;
+    public bool halfHealth = false;
 
     // Prefabs
     public GameObject explosionPrefab;      // Drag and drop the prefabs into here through the Unity inspector
@@ -92,6 +93,10 @@ public class Boss1Controller : MonoBehaviour {
         {
             Defeated();
             GameObject.Find("Canvas").GetComponent<upgradesDummy>().WinLevel();
+        }
+        else if (health <= maxHealth/2)
+        {
+            halfHealth = true;
         }
     }
 
