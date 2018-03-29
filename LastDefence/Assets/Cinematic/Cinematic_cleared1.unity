@@ -244,7 +244,7 @@ MonoBehaviour:
     - You truly are a one man army. You've cleared the way to Arizona and Texas.
   - name: Lt. Dan
     sentences:
-    - Thanks General. Just another day in the life of <Main Character>.
+    - Thanks General. Just another day in the life of Lt. Dan.
     - Say, I was a little slow out there. Is there somewhere I can upgrade my tank?
   - name: General Aisley
     sentences:
